@@ -286,7 +286,7 @@ const Pool = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-2xl shadow-lg p-8 border border-border">
             <h2 className="text-2xl font-bold text-[#1a2847] mb-6 flex items-center gap-2">
-              <Clock className="w-6 h-6 text-[#1a2847]" />
+              <Clock className="w-6 h-6 text-[#C9A961]" />
               Operating Hours & Access
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
