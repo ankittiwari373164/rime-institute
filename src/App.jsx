@@ -16,6 +16,7 @@ import ScrollTop from './components/utils/ScrollTop';
 import EnquiryButton from './components/Enquiry/EnquiryButton';
 import EnquiryForm from './components/Enquiry/EnquiryForm';
 import ApplyForm from './components/Apply/ApplyForm';
+import ApplyButton from './components/Apply/ApplyButton';
 
 const App = () => {
   const [EnquiryFormPopUp, setEnquiryFormPopUp] = useState(false);
@@ -39,6 +40,7 @@ const App = () => {
         </Routes>
         <Footer />
         <EnquiryButton setOpen={setEnquiryFormPopUp} />
+        <ApplyButton />
         <WhatsAppButton />
         <ScrollToTop />
       </div>
