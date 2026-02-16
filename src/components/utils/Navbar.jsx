@@ -105,7 +105,7 @@ const Navbar = () => {
                 <Search className="w-5 h-5 text-gray-700" />
               </button>
               <Link
-                to="/admissions"
+                to="/apply"
                 className="hidden md:flex items-center gap-2 bg-[#C9A961] text-white px-6 py-3 rounded font-semibold hover:bg-[#b89851] transition-colors"
               >
                 <span>APPLY NOW</span>
@@ -138,7 +138,7 @@ const Navbar = () => {
                 </Link>
               ))}
               <Link
-                to="/admissions"
+                to="/apply"
                 onClick={() => setIsMenuOpen(false)}
                 className="block mt-4 bg-[#C9A961] text-white px-6 py-3 rounded font-semibold text-center hover:bg-[#b89851] transition-colors"
               >
