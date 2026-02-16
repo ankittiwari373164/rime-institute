@@ -15,6 +15,7 @@ import LenisScroll from './components/utils/LenisScroll';
 import ScrollTop from './components/utils/ScrollTop';
 import EnquiryButton from './components/Enquiry/EnquiryButton';
 import EnquiryForm from './components/Enquiry/EnquiryForm';
+import ApplyForm from './components/Apply/ApplyForm';
 
 const App = () => {
   const [EnquiryFormPopUp, setEnquiryFormPopUp] = useState(false);
@@ -31,6 +32,7 @@ const App = () => {
           <Route path='/about' element={<About />} />
           <Route path='/programs' element={<Program />} />
           <Route path='/admissions' element={<Admission />} />
+          <Route path='/apply' element={<ApplyForm />} />
           <Route path='/gallery' element={<Gallary />} />
           <Route path='/contact' element={<Contact />} />
           <Route path='/*' element={<NotFound />} />

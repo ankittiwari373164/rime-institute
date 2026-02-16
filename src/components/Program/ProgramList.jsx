@@ -1,5 +1,6 @@
 import { ArrowRight, BookOpen, Clock, GraduationCap } from 'lucide-react';
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 
 const ProgramList = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
@@ -223,7 +224,9 @@ const ProgramList = () => {
 
                     <div className="lg:w-48 flex lg:flex-col gap-3">
                       <button className="flex-1 lg:flex-none bg-[#C9A961]/90 text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#C9A961] cursor-pointer transition-colors">
+                      <Link to={'/apply'}>
                         Apply Now
+                      </Link>
                       </button>
                       <button className="flex-1 lg:flex-none cursor-pointer bg-gray-100 text-gray-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-colors">
                         Download Brochure
