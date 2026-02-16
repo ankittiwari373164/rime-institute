@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Navbar from './components/utils/Navbar';
 import Footer from './components/utils/Footer';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
@@ -17,12 +17,27 @@ import EnquiryButton from './components/Enquiry/EnquiryButton';
 import EnquiryForm from './components/Enquiry/EnquiryForm';
 import ApplyForm from './components/Apply/ApplyForm';
 import ApplyButton from './components/Apply/ApplyButton';
+import Lab from './pages/Lab';
+import Library from './pages/Library';
+import Playground from './pages/Playground';
+import Pool from './pages/Pool';
+import SeminarHall from './pages/SeminarHall';
+import { useLoader } from './context/LoaderContext';
+import Loader from './components/utils/Loader';
 
 const App = () => {
   const [EnquiryFormPopUp, setEnquiryFormPopUp] = useState(false);
 
+  const location = useLocation();
+  const { showLoader } = useLoader();
+
+  useEffect(() => {
+    showLoader();
+  }, [location.pathname, showLoader]);
+
   return (
     <>
+      <Loader />
       <ScrollTop />
       { EnquiryFormPopUp ? <EnquiryForm setClose={setEnquiryFormPopUp} /> : <></> }
       <div>
@@ -36,6 +51,11 @@ const App = () => {
           <Route path='/apply' element={<ApplyForm />} />
           <Route path='/gallery' element={<Gallary />} />
           <Route path='/contact' element={<Contact />} />
+          <Route path='/facilities/labs' element={<Lab />} />
+          <Route path='/facilities/library' element={<Library />} />
+          <Route path='/facilities/playground' element={<Playground />} />
+          <Route path='/facilities/swimming-pool' element={<Pool />} />
+          <Route path='/facilities/seminar-halls' element={<SeminarHall />} />
           <Route path='/*' element={<NotFound />} />
         </Routes>
         <Footer />
