@@ -165,19 +165,19 @@ const Navbar = () => {
                 </button>
                 {mobileSubMenu && (
                   <div className="relative left-0 mt-0 w-full bg-white rounded-lg shadow-lg py-2">
-                    <Link to="/facilities/labs" className="block px-4 py-2 text-foreground hover:bg-gray-50 text-sm">
+                    <Link onClick={()=>setIsMenuOpen(!isMenuOpen)} to="/facilities/labs" className="block px-4 py-2 text-foreground hover:bg-gray-50 text-sm">
                       Labs
                     </Link>
-                    <Link to="/facilities/library" className="block px-4 py-2 text-foreground hover:bg-gray-50 text-sm">
+                    <Link onClick={()=>setIsMenuOpen(!isMenuOpen)} to="/facilities/library" className="block px-4 py-2 text-foreground hover:bg-gray-50 text-sm">
                       Library
                     </Link>
-                    <Link to="/facilities/playground" className="block px-4 py-2 text-foreground hover:bg-gray-50 text-sm">
+                    <Link onClick={()=>setIsMenuOpen(!isMenuOpen)} to="/facilities/playground" className="block px-4 py-2 text-foreground hover:bg-gray-50 text-sm">
                       Playground
                     </Link>
-                    <Link to="/facilities/swimming-pool" className="block px-4 py-2 text-foreground hover:bg-gray-50 text-sm">
+                    <Link onClick={()=>setIsMenuOpen(!isMenuOpen)} to="/facilities/swimming-pool" className="block px-4 py-2 text-foreground hover:bg-gray-50 text-sm">
                       Swimming Pool
                     </Link>
-                    <Link to="/facilities/seminar-halls" className="block px-4 py-2 text-foreground hover:bg-gray-50 text-sm">
+                    <Link onClick={()=>setIsMenuOpen(!isMenuOpen)} to="/facilities/seminar-halls" className="block px-4 py-2 text-foreground hover:bg-gray-50 text-sm">
                       Seminar Halls
                     </Link>
                   </div>
