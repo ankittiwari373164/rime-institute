@@ -8,9 +8,11 @@ const Specialize = () => {
         "Marketing",
         "Finance",
         "Human Resources",
-        "Operations",
-        "Information Technology",
+        "Operation Management",
         "International Business",
+        "Logistic & Supply Chain Management",
+        "Hospitality Management",
+        "Hospital Administration",
       ],
     },
     {

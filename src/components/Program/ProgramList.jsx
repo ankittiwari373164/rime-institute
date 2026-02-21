@@ -1,15 +1,29 @@
 import { ArrowRight, BookOpen, Clock, GraduationCap } from 'lucide-react';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import Loader from '../utils/Loader';
 
 const ProgramList = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
+  const [data, setData] = useState([]);
+
+  const server_url =  import.meta.env.VITE_SERVER_URL;
+
+  const fetchData = async() => {
+    const response = await axios.get(`${server_url}/api/courses`);
+    setData(response.data);
+  }
+
+  useEffect(() => {
+    fetchData()
+  }, [])
+  
 
   const categories = [
     { id: "all", label: "All Programs" },
     { id: "ug", label: "Undergraduate" },
     { id: "pg", label: "Postgraduate" },
-    { id: "research", label: "Research" },
   ];
 
   const programs = [
@@ -147,11 +161,12 @@ const ProgramList = () => {
 
   const filteredPrograms =
     selectedCategory === "all"
-      ? programs
-      : programs.filter((p) => p.category === selectedCategory);
+      ? data
+      : data.filter((p) => p.category === selectedCategory);
 
   return (
     <div>
+      {data ? <></> : <Loader />}
       <section className="py-8 bg-white border-b sticky top-30 z-1">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap gap-4 justify-center">
@@ -228,9 +243,11 @@ const ProgramList = () => {
                         Apply Now
                       </Link>
                       </button>
-                      <button className="flex-1 lg:flex-none cursor-pointer bg-gray-100 text-gray-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-colors">
+                      <a href="/brochure.pdf" download>
+                      <button download className="flex-1 lg:flex-none cursor-pointer bg-gray-100 text-gray-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-colors">
                         Download Brochure
                       </button>
+                      </a>
                     </div>
                   </div>
                 </div>

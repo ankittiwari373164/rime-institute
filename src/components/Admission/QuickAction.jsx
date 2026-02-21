@@ -13,10 +13,12 @@ const QuickAction = () => {
               <ArrowRight className="w-5 h-5" />
             </button>
             </Link>
+            <a href="/brochure.pdf" download>
             <button className="flex items-center gap-2 cursor-pointer bg-gray-100 text-gray-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-colors">
               <Download className="w-5 h-5" />
               Download Prospectus
             </button>
+            </a>
             <button className="flex items-center gap-2 cursor-pointer bg-gray-100 text-gray-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-colors">
               Check Application Status
             </button>
