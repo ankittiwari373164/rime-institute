@@ -16,7 +16,7 @@ const CardInfo = () => {
     {
       icon: Mail,
       title: "Email",
-      details: ["info@rime.co.in", "admissions@rime.co.in"],
+      details: ["info@rime.co.in", "admission@rime.co.in"],
     },
     {
       icon: Clock,

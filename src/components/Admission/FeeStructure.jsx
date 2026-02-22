@@ -1,6 +1,16 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 
 const FeeStructure = () => {
+  const [data, setData] = useState([]);
+
+  const server_url =  import.meta.env.VITE_SERVER_URL;
+
+  const fetchData = async() => {
+    const response = await axios.get(`${server_url}/api/course/fee`);
+    setData((response).data)
+  }
+
     const feeStructure = [
     {
       program: "B.Tech (All Branches)",
@@ -53,6 +63,11 @@ const FeeStructure = () => {
     },
   ];
 
+  useEffect(() => {
+    fetchData();
+  }, [])
+  
+
   return (
     <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -75,7 +90,7 @@ const FeeStructure = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {feeStructure.map((fee, index) => (
+                  {data.map((fee, index) => (
                     <tr key={index} className="border-b hover:bg-gray-50">
                       <td className="px-6 py-4 font-semibold text-gray-900">{fee.program}</td>
                       <td className="px-6 py-4 text-gray-600">{fee.tuitionFee}</td>

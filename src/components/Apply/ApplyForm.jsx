@@ -7,7 +7,9 @@ import SuccessSubmitBox from './SuccessSubmitBox.jsx';
 const ApplyForm = () => {
     const [currentStep, setCurrentStep] = useState(1);
     const [submitted, setSubmitted] = useState(false);
-    const { register, handleSubmit, formState: { errors }, watch } = useForm({
+    
+    // 1. ADDED 'trigger' to the destructured useForm object
+    const { register, handleSubmit, formState: { errors }, watch, trigger } = useForm({
         mode: "onChange",
     });
 
@@ -15,8 +17,38 @@ const ApplyForm = () => {
     const totalSteps = 5;
     const progress = ((currentStep - 1) / (totalSteps - 1)) * 100;
 
-    const nextStep = () => {
-        if (currentStep < totalSteps) {
+    // 2. UPDATED nextStep to be async and validate fields before moving forward
+    const nextStep = async () => {
+        let fieldsToValidate = [];
+
+        // Map out which inputs belong to which step
+        switch (currentStep) {
+            case 1:
+                fieldsToValidate = ['firstName', 'lastName', 'email', 'phone', 'dob', 'gender', 'nationality'];
+                break;
+            case 2:
+                fieldsToValidate = ['board10', 'percentage10', 'board12', 'percentage12', 'college', 'gpa'];
+                break;
+            case 3:
+                fieldsToValidate = ['program', 'specialization'];
+                break;
+            case 4:
+                // Assuming Step 4 is Address based on the previous code
+                fieldsToValidate = ['street', 'city', 'state', 'pincode']; 
+                break;
+            case 5:
+                // Add any field names for Step 5 here if they need validation before final submit
+                fieldsToValidate = []; 
+                break;
+            default:
+                fieldsToValidate = [];
+        }
+
+        // Wait for react-hook-form to validate the specified fields
+        const isStepValid = await trigger(fieldsToValidate);
+
+        // Only move to the next step if validation passes
+        if (isStepValid && currentStep < totalSteps) {
             setCurrentStep(currentStep + 1);
         }
     };
@@ -53,7 +85,17 @@ const ApplyForm = () => {
 
                 {/* Form Container */}
                 <div className="bg-white rounded-2xl shadow-xl p-8 mb-8">
-                    <ApplicationForm currentStep={currentStep} totalSteps={totalSteps} register={register} prevStep={prevStep} handleSubmit={handleSubmit} nextStep={nextStep} formData={formData} errors={errors} setSubmitted={setSubmitted} />
+                    <ApplicationForm 
+                        currentStep={currentStep} 
+                        totalSteps={totalSteps} 
+                        register={register} 
+                        prevStep={prevStep} 
+                        handleSubmit={handleSubmit} 
+                        nextStep={nextStep} 
+                        formData={formData} 
+                        errors={errors} 
+                        setSubmitted={setSubmitted} 
+                    />
                 </div>
 
                 {/* Info Box */}

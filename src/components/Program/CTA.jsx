@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 const CTA = () => {
   return (
@@ -8,9 +9,11 @@ const CTA = () => {
           <p className="text-xl mb-8 text-blue-100 max-w-2xl mx-auto">
             Our academic counselors are here to guide you in selecting the right program for your future
           </p>
+          <Link to={'/contact'}>
           <button className="bg-white cursor-pointer text-blue-900 px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 transition-colors">
             Schedule a Counseling Session
           </button>
+          </Link>
         </div>
       </section>
   )

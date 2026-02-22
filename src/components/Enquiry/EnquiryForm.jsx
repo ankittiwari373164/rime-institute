@@ -1,8 +1,12 @@
 import { Send, X } from 'lucide-react';
 import React, { useState, useEffect } from 'react';
 import { courses, institutes, states } from './statesData';
+import { toast } from 'react-toastify';
+import axios from 'axios';
 
 const EnquiryForm = ({ setClose }) => {
+    const server_url = import.meta.env.VITE_SERVER_URL;
+
     useEffect(() => {
         // Disable scroll on the body
         document.body.style.overflow = 'hidden';
@@ -26,31 +30,39 @@ const EnquiryForm = ({ setClose }) => {
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData((prevData) => ({
-            ...prevData, 
+            ...prevData,
             [name]: value
         }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("Submitted Data:", formData);
-        alert("Thank you! We will get back to you soon.");
-        setFormData({ name: "", email: "", phone: "", city: "", state: "", institute: "", course: "" });
-        
+
         // Optional: Auto-close the form after successful submission
-        setClose(false); 
+        setClose(false);
+        try {
+            const res = await axios.post(`${server_url}/api/enquiry/user-enquiry`, formData);
+            if (res.status === 200 || res.status === 201) {
+                toast.success("Thank you! We will get back to you soon.");
+                setFormData({ name: "", email: "", phone: "", city: "", state: "", institute: "", course: "" });
+            }
+        } catch (error) {
+            console.error("Error: ", error.message);
+            const errorMessage = error.response?.data?.message || "Something went wrong";
+            toast.error(errorMessage);
+        }
     };
 
     return (
         <div className='fixed inset-0 lg:px-0 px-5 z-10 bg-[#00000090] backdrop-blur-[5px] overflow-y-auto grid place-items-center py-10'>
-            
+
             <div className='w-full max-w-xl mx-4 rounded-xl bg-white px-6 md:px-10 py-7 flex flex-col relative'>
-                
+
                 <div className='flex justify-between items-center mb-6'>
                     <h2 className="text-3xl md:text-4xl text-blue-900 font-bold">Enquiry Now</h2>
-                    <X 
-                        onClick={() => setClose(false)} 
-                        className='cursor-pointer w-9 h-9 hover:bg-gray-100 text-gray-500 rounded-full p-1' 
+                    <X
+                        onClick={() => setClose(false)}
+                        className='cursor-pointer w-9 h-9 hover:bg-gray-100 text-gray-500 rounded-full p-1'
                     />
                 </div>
 

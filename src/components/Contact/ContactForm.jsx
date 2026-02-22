@@ -1,8 +1,12 @@
 import React, { useState } from 'react'
 import Map from './Map';
 import { Send } from 'lucide-react';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const ContactForm = () => {
+  const server_url =  import.meta.env.VITE_SERVER_URL;
+
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -11,10 +15,19 @@ const ContactForm = () => {
         message: "",
     });
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault();
-        alert("Thank you for your message! We will get back to you soon.");
-        setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
+        try {
+          const res = await axios.post(`${server_url}/api/contact/user-contact`, formData);
+          if(res.status === 200 || res.status === 201){
+            toast.success("Thank you for your message! We will get back to you soon.");
+            setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
+          }
+        } catch (error) {
+          console.error("Error: ", error.message);
+          const errorMessage = error.response?.data?.message || "Something went wrong";
+          toast.error(errorMessage);
+        }
     };
 
     return (
