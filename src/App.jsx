@@ -24,6 +24,8 @@ import Pool from './pages/Pool';
 import SeminarHall from './pages/SeminarHall';
 import { useLoader } from './context/LoaderContext';
 import Loader from './components/utils/Loader';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/ReactToastify.css';
 
 const App = () => {
   const [EnquiryFormPopUp, setEnquiryFormPopUp] = useState(false);
@@ -37,6 +39,7 @@ const App = () => {
 
   return (
     <>
+      <ToastContainer position='bottom-right' />
       <Loader />
       <ScrollTop />
       { EnquiryFormPopUp ? <EnquiryForm setClose={setEnquiryFormPopUp} /> : <></> }
