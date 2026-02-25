@@ -13,7 +13,7 @@ const Pool = () => {
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
-            Olympic Swimming Pool
+            Swimming Pool
           </h1>
           <p className="text-lg sm:text-xl text-gray-100 max-w-3xl mx-auto">
             International standard aquatic facilities for training, recreation, and competitive swimming

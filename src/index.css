@@ -2,13 +2,32 @@
 
 @import "tailwindcss";
 
-*{
+* {
   box-sizing: border-box;
   font-family: "Outfit", sans-serif;
 }
 
-@layer base{
-  :root{
+@layer base {
+  :root {
     --primary: #C9A961;
   }
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  place-self: center;
+  border: 5px solid #bdbdbd;
+  border-top-color: #C9A961;
+  border-radius: 50%;
+  animation: rotate 1s infinite;
+  display: grid;
+  /* position: absolute; */
+  margin-top: 5em;
+}
+
+@keyframes rotate {
+    100%{
+        transform: rotate(360deg);
+    }
 }

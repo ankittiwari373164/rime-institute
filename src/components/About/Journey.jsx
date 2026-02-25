@@ -2,11 +2,10 @@ import React from 'react'
 
 const Journey = () => {
     const milestones = [
-    { year: "2000", title: "RIME Founded", description: "Established with a vision for modern education" },
-    { year: "2005", title: "NAAC Accreditation", description: "Received A+ grade from NAAC" },
-    { year: "2010", title: "Research Center", description: "Launched state-of-the-art research facilities" },
+    { year: "2000", title: "Society Founded", description: "Established with a vision for modern education" },
+    { year: "2005", title: "NAAC Accreditation", description: "Under process" },
     { year: "2015", title: "International Tie-ups", description: "Partnerships with global universities" },
-    { year: "2020", title: "10,000+ Students", description: "Reached milestone of 10,000 active students" },
+    { year: "2020", title: "Group of Institution", description: "Reached milestone of 10,000 active students" },
     { year: "2026", title: "Innovation Hub", description: "Opening of dedicated innovation and startup center" },
   ];
 

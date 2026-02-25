@@ -3,11 +3,11 @@ import React from 'react'
 
 const ImportantDate = () => {
     const importantDates = [
-        { event: "Application Start Date", date: "January 15, 2026" },
-        { event: "Application End Date", date: "May 30, 2026" },
-        { event: "Entrance Exam Date", date: "June 15, 2026" },
+        { event: "Application Start Date", date: "March 01, 2026" },
+        { event: "Application End Date", date: "June 10, 2026" },
+        { event: "Entrance Exam Date", date: "June 20, 2026" },
         { event: "Results Declaration", date: "June 25, 2026" },
-        { event: "Counseling Dates", date: "July 1-10, 2026" },
+        { event: "Counseling Dates", date: "July 1-20, 2026 *" },
         { event: "Classes Commence", date: "August 1, 2026" },
     ];
 
@@ -65,6 +65,9 @@ const ImportantDate = () => {
                         </div>
                     </div>
                 </div>
+                <p className='mt-5'>
+                    <strong>Note:</strong> Counseling as per government scheduled as UGC.
+                </p>
             </div>
         </section>
     )

@@ -4,15 +4,19 @@ import Stats from '../components/Home/Stats';
 import AboutSection from '../components/Home/AboutSection';
 import Features from '../components/Home/Features';
 import ProgramOffer from '../components/Home/ProgramOffer';
+import Recruiter from '../components/Company/Recruiter';
+import LeaderMessage from '../components/About/LeaderMessage';
 
 const Home = () => {
   return (
-    <div className='mt-30'>
+    <div className='mt-30 overflow-y-hidden overflow-x-hidden'>
       <Header />
       <Stats />
       <AboutSection />
       <Features />
+      <LeaderMessage />
       <ProgramOffer />
+      <Recruiter />
     </div>
   )
 }
