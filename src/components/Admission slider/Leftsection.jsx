@@ -18,7 +18,7 @@ const LeftSection = ({ goldenColor }) => {
         </svg>
       </div>
 
-      <div className="relative z-10 text-center">
+      <div className="relative z-1 text-center">
         <h1 
           style={{ color: goldenColor }}
           className="text-4xl md:text-6xl font-extrabold tracking-tight mb-2"

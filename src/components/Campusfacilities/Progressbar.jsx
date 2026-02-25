@@ -1,4 +1,4 @@
-export default function ProgressBar({ progress }) {
+export default function Progressbar({ progress }) {
   return (
     <div className="absolute top-0 left-0 w-full h-1 bg-white/20 z-40">
       <div 

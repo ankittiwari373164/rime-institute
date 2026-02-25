@@ -1,8 +1,8 @@
 // src/pages/Admissions.jsx
 import React, { useState, useEffect } from "react";
-import { departments } from "../components/Admissions/Departments";
-import LeftSection from "../components/Admissions/LeftSection";
-import RightSection from "../components/Admissions/RightSection";
+import { departments } from "../Admission slider/Department.js";
+import LeftSection from "../Admission slider/Leftsection.jsx";
+import RightSection from "../Admission slider/Rightsection.jsx";
 
 const Admissions = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -23,7 +23,7 @@ const Admissions = () => {
   }, []);
 
   return (
-    <div className="flex h-screen w-full font-sans overflow-hidden bg-white select-none">
+    <div className="flex lg:flex-row md:flex-row flex-col h-110 w-full font-sans overflow-hidden bg-white select-none">
       <LeftSection goldenColor={goldenColor} />
       <RightSection 
         goldenColor={goldenColor} 

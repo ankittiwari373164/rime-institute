@@ -41,7 +41,7 @@ export default function Slider() {
   }, [isAutoPlaying, handleNext]);
 
   return (
-    <div className="relative aspect-[16/9] md:aspect-[21/9] overflow-hidden rounded-sm bg-neutral-100 shadow-xl group/slider">
+    <div className="relative aspect-video md:aspect-21/9 overflow-hidden rounded-sm bg-neutral-100 shadow-xl group/slider">
       <ProgressBar progress={progress} />
       <div 
         className="flex h-full transition-transform duration-700 cubic-bezier(0.4, 0, 0.2, 1)"

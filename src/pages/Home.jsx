@@ -6,6 +6,9 @@ import Features from '../components/Home/Features';
 import ProgramOffer from '../components/Home/ProgramOffer';
 import Recruiter from '../components/Company/Recruiter';
 import LeaderMessage from '../components/About/LeaderMessage';
+import Admissions from '../components/Admission slider/Admissions';
+import Placement from '../components/Student-placement/Placement';
+import CampusFacilities from '../components/Campusfacilities/CampusFacilities';
 
 const Home = () => {
   return (
@@ -14,9 +17,12 @@ const Home = () => {
       <Stats />
       <AboutSection />
       <Features />
-      <LeaderMessage />
       <ProgramOffer />
+      <Admissions />
       <Recruiter />
+      <CampusFacilities />
+      <Placement />
+      <LeaderMessage />
     </div>
   )
 }

@@ -20,7 +20,7 @@ export default function Controls({ handlePrev, handleNext, isAutoPlaying, toggle
 
       <button 
         onClick={togglePlay}
-        className="absolute bottom-6 left-10 md:left-auto md:right-[220px] text-white/70 hover:text-white transition-colors z-30"
+        className="absolute bottom-6 left-10 md:left-auto md:right-55 text-white/70 hover:text-white transition-colors z-30"
       >
         {isAutoPlaying ? <Pause size={20} /> : <Play size={20} />}
       </button>

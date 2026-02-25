@@ -4,13 +4,13 @@ const brandGold = "#b08d4b";
 
 const PlacementCard = ({ student }) => {
   return (
-    <div className="bg-white border border-gray-100 rounded-xl p-4 flex gap-4 shadow-sm hover:shadow-md transition-shadow duration-300 min-h-[180px]">
+    <div className="bg-white w-auto border border-gray-100 rounded-xl p-4 flex gap-4 shadow-sm hover:shadow-md transition-shadow duration-300 min-h-45">
       {/* Left: Student Image */}
-      <div className="w-1/3 min-w-[100px] h-full overflow-hidden rounded-lg bg-gray-100">
+      <div className="w-auto min-w-25 h-full overflow-hidden rounded-lg bg-gray-100">
         <img
           src={student.studentImg}
           alt={student.name}
-          className="w-full h-full object-cover grayscale-[20%]"
+          className="w-auto h-50 object-cover grayscale-20"
           onError={(e) => {
             e.target.src = "https://via.placeholder.com/150";
           }}
