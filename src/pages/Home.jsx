@@ -5,6 +5,7 @@ import AboutSection from '../components/Home/AboutSection';
 import Features from '../components/Home/Features';
 import ProgramOffer from '../components/Home/ProgramOffer';
 import Recruiter from '../components/Company/Recruiter';
+import LeaderMessage from '../components/About/LeaderMessage';
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
       <Stats />
       <AboutSection />
       <Features />
+      <LeaderMessage />
       <ProgramOffer />
       <Recruiter />
     </div>
