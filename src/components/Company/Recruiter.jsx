@@ -5,34 +5,34 @@ const Recruiter = () => {
     const stats = [
         { label: "Organizations Recruited", value: "500+", icon: <Users className="w-5 h-5" /> },
         { label: "Average Package", value: "5.4LPA", icon: <Briefcase className="w-5 h-5" /> },
-        { label: "Placed in top companies", value: "98%", icon: <Target className="w-5 h-5" /> },
+        { label: "Placed", value: "98%", icon: <Target className="w-5 h-5" /> },
     ];
 
     const companies = [
         { name: "Infosys", logo: "https://upload.wikimedia.org/wikipedia/commons/9/95/Infosys_logo.svg" },
-        { name: "TCS", logo: "https://upload.wikimedia.org/wikipedia/commons/b/b1/Tata_Consultancy_Services_Logo.svg" },
+        { name: "TCS", logo: "/tcs.webp" },
         { name: "Wipro", logo: "https://upload.wikimedia.org/wikipedia/commons/a/a0/Wipro_Primary_Logo_Color_RGB.svg" },
-        { name: "HCL", logo: "https://upload.wikimedia.org/wikipedia/commons/0/03/HCL_Technologies_logo.svg" },
-        { name: "Tech Mahindra", logo: "https://upload.wikimedia.org/wikipedia/commons/b/b3/Tech_Mahindra_New_Logo.svg" },
+        { name: "HCL", logo: "hcl.png" },
+        { name: "Tech Mahindra", logo: "/tech-mahindra.png" },
         { name: "Accenture", logo: "https://upload.wikimedia.org/wikipedia/commons/c/cd/Accenture.svg" },
         { name: "Capgemini", logo: "https://upload.wikimedia.org/wikipedia/commons/9/9d/Capgemini_201x_logo.svg" },
         { name: "IBM", logo: "https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" },
         { name: "Cognizant", logo: "https://upload.wikimedia.org/wikipedia/commons/4/43/Cognizant_logo_2022.svg" },
         { name: "Amazon", logo: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" },
-        { name: "Flipkart", logo: "https://upload.wikimedia.org/wikipedia/commons/7/7a/Flipkart_logo.svg" },
+        { name: "Flipkart", logo: "/flipkart-logo.png" },
         { name: "Paytm", logo: "https://upload.wikimedia.org/wikipedia/commons/2/24/Paytm_Logo_%28standalone%29.svg" },
-        { name: "Reliance Jio", logo: "https://upload.wikimedia.org/wikipedia/commons/5/50/Reliance_Jio_Logo.svg" },
-        { name: "Maruti Suzuki", logo: "https://upload.wikimedia.org/wikipedia/commons/1/12/Suzuki_logo_2.svg" },
+        { name: "Reliance Jio", logo: "/jio-logo.png" },
+        { name: "Maruti Suzuki", logo: "/maruti-suzuki-logo.jpg" },
         { name: "HDFC Bank", logo: "https://upload.wikimedia.org/wikipedia/commons/2/28/HDFC_Bank_Logo.svg" },
         { name: "ICICI Bank", logo: "https://upload.wikimedia.org/wikipedia/commons/1/12/ICICI_Bank_Logo.svg" },
-        { name: "Deloitte", logo: "https://upload.wikimedia.org/wikipedia/commons/2/2b/Deloitte.svg" },
-        { name: "KPMG", logo: "https://upload.wikimedia.org/wikipedia/commons/9/9d/KPMG_logo.svg" },
+        { name: "Deloitte", logo: "/deloitte-logo.png" },
+        { name: "KPMG", logo: "/KPMG_logo.webp" },
         { name: "EY", logo: "https://upload.wikimedia.org/wikipedia/commons/3/34/EY_logo_2019.svg" },
-        { name: "Nestle", logo: "https://upload.wikimedia.org/wikipedia/commons/b/bf/Nestle_textlogo.svg" },
-        { name: "Airtel", logo: "https://upload.wikimedia.org/wikipedia/commons/d/d4/Airtel_logo_2011.svg" },
-        { name: "Adani", logo: "https://upload.wikimedia.org/wikipedia/commons/0/0c/Adani_Group_logo.svg" },
+        { name: "Nestle", logo: "/nestle-logo.png" },
+        { name: "Airtel", logo: "/airtel-logo.png" },
+        { name: "Adani", logo: "/Adani_logo.png" },
         { name: "Siemens", logo: "https://upload.wikimedia.org/wikipedia/commons/5/5f/Siemens-logo.svg" },
-        { name: "Bosch", logo: "https://upload.wikimedia.org/wikipedia/commons/1/16/Bosch-Logo.svg" }
+        { name: "Bosch", logo: "/Bosch-logo.png" }
     ];
 
     const duplicatedCompanies = [...companies, ...companies, ...companies];
