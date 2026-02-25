@@ -1,13 +1,11 @@
-import { Briefcase, TrendingUp, Users, Building, Target } from 'lucide-react';
+import { Briefcase, Users, Target } from 'lucide-react';
 import React from 'react'
 
 const Recruiter = () => {
     const stats = [
-        { label: "Organizations Recruited", value: "1200+", icon: <Users className="w-5 h-5" /> },
-        { label: "Highest Package", value: "1.5Cr", icon: <TrendingUp className="w-5 h-5" /> },
+        { label: "Organizations Recruited", value: "500+", icon: <Users className="w-5 h-5" /> },
         { label: "Average Package", value: "5.4LPA", icon: <Briefcase className="w-5 h-5" /> },
         { label: "Placed in top companies", value: "98%", icon: <Target className="w-5 h-5" /> },
-        { label: "Startups", value: "100+", icon: <Building className="w-5 h-5" /> }
     ];
 
     const companies = [
@@ -63,7 +61,7 @@ const Recruiter = () => {
             {/* Stats Section */}
             <div className="border-t border-[#C9A961] max-w-6xl mx-auto"></div>
             <section className="py-12 px-4 max-w-7xl mx-auto">
-                <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
+                <div className="grid grid-cols md:grid-cols-3 gap-8">
                     {stats.map((stat, idx) => (
                         <div
                             key={idx}

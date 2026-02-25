@@ -17,7 +17,7 @@ const IntroSection = () => {
             </div>
             <h2 className="text-4xl mb-6 text-gray-900 font-bold">Our Story</h2>
             <p className="text-gray-600 mb-4 leading-relaxed">
-              The Research Institute of Modern Education (RIME) was established in 2000 with a
+              Rattan Institute of Technology & Management (RIME) was established with a
               mission to revolutionize higher education in India. What started as a small college
               with 100 students has now grown into one of the country's most respected institutions.
             </p>
@@ -37,7 +37,7 @@ const IntroSection = () => {
             transition={{ duration: 1 }}
             className="relative h-125 rounded-lg overflow-hidden shadow-2xl">
             <ImageWithFallback
-              src="/rime-image-1.jpeg"
+              src="/rime-2.jpeg"
               alt="RIME Campus"
               className="w-full h-full object-cover"
             />

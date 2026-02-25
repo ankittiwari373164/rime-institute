@@ -14,8 +14,7 @@ const LeaderMessage = () => {
             </div>
             <div className="text-gray-600 leading-relaxed space-y-4">
               <p>
-                "It is with great pride and pleasure that I welcome you to the Research Institute of
-                Modern Education. As we continue our journey of academic excellence, we remain committed
+                "It is with great pride and pleasure that I welcome you to the Rattan Institute of Technology & Management. As we continue our journey of academic excellence, we remain committed
                 to providing an environment that nurtures creativity, critical thinking, and innovation."
               </p>
               <p>

@@ -15,12 +15,27 @@ const Gallery = () => {
     const images = [
         {
             category: "campus",
-            url: "https://images.unsplash.com/photo-1642130935796-1409d7e075dd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx1bml2ZXJzaXR5JTIwY2FtcHVzJTIwYnVpbGRpbmd8ZW58MXx8fHwxNzcwODUyNDI4fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+            url: "/rime-8.jpeg",
             title: "Main Campus Building",
         },
         {
+            category: "campus",
+            url: "rime-1.jpeg",
+            title: "Engineering Block",
+        },
+        {
+            category: "campus",
+            url: "/rime-4.jpeg",
+            title: "Campus Grounds",
+        },
+        {
+            category: "campus",
+            url: "/rime-5.jpeg",
+            title: "Campus Grounds",
+        },
+        {
             category: "events",
-            url: "https://images.unsplash.com/photo-1661693758705-4fa65572bced?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzdHVkZW50cyUyMGdyYWR1YXRpb24lMjBjYXB8ZW58MXx8fHwxNzcwOTIwMTU1fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+            url: "/graduation-ceremony.png",
             title: "Graduation Ceremony 2026",
         },
         {
@@ -29,18 +44,18 @@ const Gallery = () => {
             title: "Modern Classroom",
         },
         {
+            category: "facilities",
+            url: "/library-image.png",
+            title: "Library",
+        },
+        {
             category: "activities",
-            url: "https://images.unsplash.com/photo-1623863568368-69e4cbe6cc0b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxpbmRpYW4lMjBjb2xsZWdlJTIwc3R1ZGVudHMlMjBzdHVkeWluZ3xlbnwxfHx8fDE3NzA4NzY2OTZ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+            url: "/group-study.png",
             title: "Student Study Group",
         },
         {
-            category: "campus",
-            url: "https://images.unsplash.com/photo-1642130935796-1409d7e075dd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx1bml2ZXJzaXR5JTIwY2FtcHVzJTIwYnVpbGRpbmd8ZW58MXx8fHwxNzcwODUyNDI4fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-            title: "Campus Grounds",
-        },
-        {
             category: "facilities",
-            url: "https://images.unsplash.com/photo-1758413350815-7b06dbbfb9a7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBjbGFzc3Jvb20lMjBsZWFybmluZ3xlbnwxfHx8fDE3NzA4NzEzODB8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+            url: "/computer-lab.png",
             title: "Computer Lab",
         },
     ];

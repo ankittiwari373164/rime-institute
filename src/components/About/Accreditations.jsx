@@ -16,9 +16,9 @@ const Accreditations = () => {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              "NAAC A+ Accredited",
+              "NAAC Accredition Under Process",
               "NBA Approved",
-              "UGC Recognized",
+              "UGC Affiliated",
               "AICTE Approved",
             ].map((accreditation, index) => (
               <div

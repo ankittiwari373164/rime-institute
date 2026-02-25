@@ -4,10 +4,10 @@ import { motion } from 'motion/react';
 
 const Header = () => {
   return (
-    <section className="relative h-150 flex items-center justify-center overflow-hidden">
+    <section className="relative h-170 flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 bg-linear-to-r from-black/70 via-black/50 to-black/30 z-1" />
       <ImageWithFallback
-        src="/rime-image.jpeg"
+        src="/rime-6.jpeg"
         alt="RIME Institute"
         className="absolute inset-0 -z-1 w-full h-full object-cover"
       />
@@ -21,7 +21,7 @@ const Header = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-5xl md:text-7xl mb-8 font-bold leading-tight overflow-y-hidden">
-          Quality Education at <span className="text-[#C9A961]">RIME</span>
+          Transforming Knowledge into <span className="text-[#C9A961]">Technology</span>
         </motion.h1>
         <button className="bg-[#C9A961] cursor-pointer text-white px-10 py-4 rounded text-lg font-semibold hover:bg-[#b89851] transition-colors">
           REGISTER NOW
