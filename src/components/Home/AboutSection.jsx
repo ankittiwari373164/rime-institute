@@ -1,17 +1,22 @@
 import React from 'react'
 import { ImageWithFallback } from '../utils/ImageWithFallback';
 import { Link } from 'react-router-dom';
+import { motion } from 'motion/react';
 
 const AboutSection = () => {
     return (
         <section className="py-20 bg-gray-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
-                    <div>
+                    <motion.div
+                        initial={{ opacity: 0, x: -60 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 1 }}
+                    >
                         <div className="inline-block bg-[#C9A961] text-white px-4 py-1 text-sm mb-4">
                             ABOUT RIME
                         </div>
-                        <h2 className="text-4xl font-bold mb-6 text-gray-900">
+                        <h2 className="text-4xl font-bold mb-6 text-gray-900 overflow-y-hidden">
                             Rattan Institute of <span className="text-[#C9A961]">Management & Engineering</span>
                         </h2>
                         <p className="text-gray-600 mb-6 leading-relaxed">
@@ -29,14 +34,18 @@ const AboutSection = () => {
                         >
                             Learn More
                         </Link>
-                    </div>
-                    <div className="relative h-100 rounded-lg overflow-hidden shadow-2xl">
+                    </motion.div>
+                    <motion.div
+                        initial={{ opacity: 0, x: 60 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 1 }}
+                        className="relative h-100 rounded-lg overflow-hidden shadow-2xl">
                         <ImageWithFallback
                             src="/library-image.png"
                             alt="RIME Campus"
                             className="w-full h-full object-cover"
                         />
-                    </div>
+                    </motion.div>
                 </div>
             </div>
         </section>

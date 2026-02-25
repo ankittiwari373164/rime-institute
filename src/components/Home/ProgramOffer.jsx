@@ -2,6 +2,7 @@ import React from 'react'
 import { ImageWithFallback } from '../utils/ImageWithFallback';
 import { CheckCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { motion } from 'motion/react';
 
 const ProgramOffer = () => {
     const programs = [
@@ -29,7 +30,7 @@ const ProgramOffer = () => {
                     <div className="inline-block bg-[#C9A961] text-white px-4 py-1 text-sm mb-4">
                         OUR PROGRAMS
                     </div>
-                    <h2 className="text-4xl mb-4 font-bold text-gray-900">
+                    <h2 className="text-4xl mb-4 font-bold text-gray-900 overflow-y-hidden">
                         Programs We <span className="text-[#C9A961]">Offer</span>
                     </h2>
                     <p className="text-gray-600 max-w-2xl mx-auto">
@@ -38,7 +39,10 @@ const ProgramOffer = () => {
                 </div>
                 <div className="grid md:grid-cols-3 gap-8">
                     {programs.map((program, index) => (
-                        <div
+                        <motion.div
+                            initial={index == 0 ? { opacity: 0, x: -60 } : index == 1 ? { opacity: 0, y: 60 } : { opacity: 0, x: 60 }}
+                            whileInView={{ opacity: 1, x: 0, y: 0 }}
+                            transition={{ duration: 1 }}
                             key={index}
                             className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow group"
                         >
@@ -66,7 +70,7 @@ const ProgramOffer = () => {
                                     View Details
                                 </Link>
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
             </div>

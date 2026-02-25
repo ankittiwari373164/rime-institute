@@ -7,7 +7,7 @@ import ProgramOffer from '../components/Home/ProgramOffer';
 
 const Home = () => {
   return (
-    <div className='mt-30'>
+    <div className='mt-30 overflow-y-hidden'>
       <Header />
       <Stats />
       <AboutSection />

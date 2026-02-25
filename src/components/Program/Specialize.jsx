@@ -31,7 +31,7 @@ const Specialize = () => {
     <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-4xl mb-4 text-blue-900 font-bold">Specializations Offered</h2>
+            <h2 className="text-4xl mb-4 text-blue-900 font-bold overflow-y-hidden">Specializations Offered</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
               Choose from a wide range of specializations to align with your career goals
             </p>
