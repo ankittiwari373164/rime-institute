@@ -6,6 +6,12 @@ import Features from '../components/Home/Features';
 import ProgramOffer from '../components/Home/ProgramOffer';
 import Recruiter from '../components/Company/Recruiter';
 import LeaderMessage from '../components/About/LeaderMessage';
+import Admissions from '../components/Admission slider/Admissions';
+import Placement from '../components/Student-placement/Placement';
+import CampusFacilities from '../components/Campusfacilities/CampusFacilities';
+import HeroCampus from '../components/HeroComp/HeroCampus';
+import RimeCampusStaff from '../components/RimeCampus/RimeCampusStaff';
+import Affiliation from '../components/Affiliation/Affiliation';
 
 const Home = () => {
   return (
@@ -14,9 +20,15 @@ const Home = () => {
       <Stats />
       <AboutSection />
       <Features />
-      <LeaderMessage />
       <ProgramOffer />
+      <Admissions />
       <Recruiter />
+      <CampusFacilities />
+      <Placement />
+      <HeroCampus />
+      <RimeCampusStaff />
+      <LeaderMessage />
+      <Affiliation />
     </div>
   )
 }
