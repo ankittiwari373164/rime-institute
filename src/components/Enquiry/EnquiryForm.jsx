@@ -54,7 +54,7 @@ const EnquiryForm = ({ setClose }) => {
     };
 
     return (
-        <div className='fixed inset-0 lg:px-0 px-5 z-10 bg-[#00000090] backdrop-blur-[5px] overflow-y-auto grid place-items-center py-10'>
+        <div className='fixed inset-0 lg:px-0 px-5 z-100 bg-[#00000090] backdrop-blur-[5px] overflow-y-auto grid place-items-center py-10'>
 
             <div className='w-full max-w-xl mx-4 rounded-xl bg-white px-6 md:px-10 py-7 flex flex-col relative'>
 
