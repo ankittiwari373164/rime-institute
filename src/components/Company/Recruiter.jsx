@@ -38,7 +38,7 @@ const Recruiter = () => {
     const duplicatedCompanies = [...companies, ...companies, ...companies];
 
     return (
-        <div className="min-h-screen bg-gray-50 font-sans text-gray-900 overflow-x-hidden">
+        <div className="h-auto bg-gray-50 font-sans text-gray-900 overflow-x-hidden">
             {/* Header Section */}
             <section className="py-16 px-4 max-w-7xl mx-auto text-center">
                 <h1 className="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">

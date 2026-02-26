@@ -9,6 +9,9 @@ import LeaderMessage from '../components/About/LeaderMessage';
 import Admissions from '../components/Admission slider/Admissions';
 import Placement from '../components/Student-placement/Placement';
 import CampusFacilities from '../components/Campusfacilities/CampusFacilities';
+import HeroCampus from '../components/HeroComp/HeroCampus';
+import RimeCampusStaff from '../components/RimeCampus/RimeCampusStaff';
+import Affiliation from '../components/Affiliation/Affiliation';
 
 const Home = () => {
   return (
@@ -22,7 +25,10 @@ const Home = () => {
       <Recruiter />
       <CampusFacilities />
       <Placement />
+      <HeroCampus />
+      <RimeCampusStaff />
       <LeaderMessage />
+      <Affiliation />
     </div>
   )
 }
