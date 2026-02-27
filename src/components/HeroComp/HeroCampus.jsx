@@ -2,14 +2,14 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { ChevronLeft, ChevronRight, GraduationCap, MapPin, Pause, Play } from 'lucide-react';
 
 const IMAGES = [
-  '/rime-1.jpeg',
-  '/rime-11.jpeg',
-  '/rime-6.jpeg',
+  '/campus-image-rime-1.jpeg',
+  '/campus-image-rime-4.jpeg',
+  '/campus-image-rime.jpeg',
   'https://images.unsplash.com/photo-1519452635265-7b1fbfd1e4e0?auto=format&fit=crop&q=80&w=2000',
-  '/rime-8.jpeg',
+  '/campus-image-rime-2.jpeg',
   '/event-3.jpeg',
-  '/rime-10.jpeg',
-  '/rime-12.jpeg'
+  '/campus-image-rime-3.jpeg',
+  '/campus-image-rime-5.jpeg'
 ];
 
 const STATS = [

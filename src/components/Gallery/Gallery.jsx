@@ -15,27 +15,27 @@ const Gallery = () => {
     const images = [
         {
             category: "campus",
-            url: "/rime-8.jpeg"
+            url: "/campus-image-rime-2.jpeg"
         },
         {
             category: "campus",
-            url: "rime-1.jpeg",
+            url: "campus-image-rime-1.jpeg",
         },
         {
             category: "campus",
-            url: "/rime-6.jpeg",
+            url: "/campus-image-rime.jpeg",
         },
         {
             category: "campus",
-            url: "/rime-10.jpeg",
+            url: "/campus-image-rime-3.jpeg",
         },
         {
             category: "campus",
-            url: "/rime-11.jpeg",
+            url: "/campus-image-rime-4.jpeg",
         },
         {
             category: "campus",
-            url: "/rime-12.jpeg",
+            url: "/campus-image-rime-5.jpeg",
         },
         {
             category: "events",

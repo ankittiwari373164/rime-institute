@@ -8,7 +8,7 @@ const Header = () => {
     <section className="relative h-170 flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 bg-linear-to-r from-black/70 via-black/50 to-black/30 z-1" />
       <ImageWithFallback
-        src="/rime-6.jpeg"
+        src="/campus-image-rime-2.jpeg"
         alt="RIME Institute"
         className="absolute inset-0 -z-1 w-full h-full object-cover"
       />
