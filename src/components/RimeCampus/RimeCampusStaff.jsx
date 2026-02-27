@@ -12,31 +12,27 @@ import React from 'react';
 const FacultySection = () => {
   const facultyData = [
     {
-      name: "Prof. Dr. Mukesh Kumar Saini",
-      role: "ECE & DSW",
-      image: "#",
+      name: "Sh, Yashvir Dagar",
+      role: "Chairman",
+      image: "./director.jpeg",
     },
     {
-      name: "Prof. Dr. Rajesh Kumar Singh",
-      role: "Dean Academics",
-      image: "#",
+      name: "Dr. Shyam Sunder Kaushik",
+      role: "Director at RIME",
+      image: "./headmaster.jpeg",
     },
     {
-      name: "Ms. Shefali Madan",
-      role: "Associate HOD, CSE & Chief Proctor",
-      image: "#",
+      name: "Deeksha Singh",
+      role: "HOD (CSE Deptt.)",
+      image: "./deeksha.jpg",
     },
-    {
-      name: "Prof. Dr. Sindhu Kumar",
-      role: "HOD, ME Deptt.",
-      image: "#",
-    },
+    
   ];
 
   return (
     <section className="min-h-auto bg-[#fcfcfc] py-20 px-6 font-sans antialiased">
       <div className="max-w-screen-2xl mx-auto">
-        
+
         {/* Header Section */}
         <div className="text-center mb-24">
           <h2 className="text-5xl md:text-6xl font-extrabold text-gray-900 tracking-tight mb-8">
@@ -51,12 +47,12 @@ const FacultySection = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 lg:mx-30 mx-10 gap-25 mt-32">
           {facultyData.map((member, index) => (
             <div key={index} className="relative flex flex-col items-center">
-              
+
               {/* Profile Image Container - Overlapping */}
               <div className="absolute -top-20 z-20">
                 <div className="w-40 h-40 rounded-full border-[6px] border-white shadow-xl overflow-hidden bg-[#454545] flex items-center justify-center">
-                  <img 
-                    src={member.image} 
+                  <img
+                    src={member.image}
                     alt={member.name}
                     className="w-full h-full object-cover grayscale-20 hover:grayscale-0 transition-all duration-500"
                     onError={(e) => {
