@@ -9,12 +9,12 @@ const ProgramOffer = () => {
         {
             title: "Engineering",
             programs: ["Computer Science", "Electronics", "Mechanical", "Civil"],
-            image: "/computer-lab.png",
+            image: "/engineering.jpeg",
         },
         {
             title: "Management",
             programs: ["MBA", "BBA", "Executive MBA", "PGDM"],
-            image: "/group-study.png",
+            image: "/management.jpeg",
         },
         {
             title: "Computer Applications",

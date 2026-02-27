@@ -23,7 +23,7 @@ const Gallery = () => {
         },
         {
             category: "campus",
-            url: "/rime-4.jpeg",
+            url: "/rime-6.jpeg",
         },
         {
             category: "campus",
