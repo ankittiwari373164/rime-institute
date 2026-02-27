@@ -15,48 +15,159 @@ const Gallery = () => {
     const images = [
         {
             category: "campus",
-            url: "/rime-8.jpeg",
-            title: "Main Campus Building",
+            url: "/rime-8.jpeg"
         },
         {
             category: "campus",
             url: "rime-1.jpeg",
-            title: "Engineering Block",
         },
         {
             category: "campus",
             url: "/rime-4.jpeg",
-            title: "Campus Grounds",
         },
         {
             category: "campus",
-            url: "/rime-5.jpeg",
-            title: "Campus Grounds",
+            url: "/rime-10.jpeg",
+        },
+        {
+            category: "campus",
+            url: "/rime-11.jpeg",
+        },
+        {
+            category: "campus",
+            url: "/rime-12.jpeg",
         },
         {
             category: "events",
-            url: "/graduation-ceremony.png",
-            title: "Graduation Ceremony 2026",
+            url: "/orientation-1.jpeg",
+        },
+        {
+            category: "events",
+            url: "/event-1.jpeg",
+        },
+        {
+            category: "events",
+            url: "/event-2.jpeg",
+        },
+        {
+            category: "events",
+            url: "/event-3.jpeg",
+        },
+        {
+            category: "events",
+            url: "/event-4.jpeg",
         },
         {
             category: "facilities",
-            url: "https://images.unsplash.com/photo-1758413350815-7b06dbbfb9a7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBjbGFzc3Jvb20lMjBsZWFybmluZ3xlbnwxfHx8fDE3NzA4NzEzODB8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-            title: "Modern Classroom",
+            url: "/workshop-3.jpeg"
         },
         {
             category: "facilities",
-            url: "/library-image.png",
-            title: "Library",
+            url: "/workshop-2.jpeg",
         },
         {
             category: "activities",
-            url: "/group-study.png",
-            title: "Student Study Group",
+            url: "/sport-3.jpeg",
+        },
+        {
+            category: "activities",
+            url: "/sport-2.jpeg",
+        },
+        {
+            category: "activities",
+            url: "/sport-1.jpeg",
+        },
+        {
+            category: "activities",
+            url: "/sport-4.jpeg",
+        },
+        {
+            category: "activities",
+            url: "/sport-5.jpeg",
+        },
+        {
+            category: "activities",
+            url: "/sport-6.jpeg",
+        },
+        {
+            category: "activities",
+            url: "/sport-7.jpeg",
+        },
+        {
+            category: "activities",
+            url: "/activities-1.jpeg",
+        },
+        {
+            category: "activities",
+            url: "/activities-2.jpeg",
+        },
+        {
+            category: "activities",
+            url: "/activities-3.jpeg",
+        },
+        {
+            category: "activities",
+            url: "/activities-4.jpeg",
         },
         {
             category: "facilities",
-            url: "/computer-lab.png",
-            title: "Computer Lab",
+            url: "/workshop-1.jpeg",
+        },
+        {
+            category: "facilities",
+            url: "/workshop-4.jpeg",
+        },
+        {
+            category: "facilities",
+            url: "/workshop-5.jpeg",
+        },
+        {
+            category: "facilities",
+            url: "/workshop-6.jpeg",
+        },
+        {
+            category: "facilities",
+            url: "/workshop-7.jpeg",
+        },
+        {
+            category: "facilities",
+            url: "/library-img-1.jpeg",
+        },
+        {
+            category: "facilities",
+            url: "/library-img-2.jpeg",
+        },
+        {
+            category: "facilities",
+            url: "/library-img-3.jpeg",
+        },
+        {
+            category: "facilities",
+            url: "/library-img-4.jpeg",
+        },
+        {
+            category: "facilities",
+            url: "/library-img-5.jpeg",
+        },
+        {
+            category: "facilities",
+            url: "/lab-1.jpeg",
+        },
+        {
+            category: "facilities",
+            url: "/lab-2.jpeg",
+        },
+        {
+            category: "facilities",
+            url: "/classroom-1.jpeg",
+        },
+        {
+            category: "facilities",
+            url: "/classroom-2.jpeg",
+        },
+        {
+            category: "facilities",
+            url: "/classroom-3.jpeg",
         },
     ];
 
@@ -102,9 +213,6 @@ const Gallery = () => {
                                         alt={image.title}
                                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                                     />
-                                </div>
-                                <div className="p-4">
-                                    <h3 className="text-lg font-semibold text-gray-900">{image.title}</h3>
                                 </div>
                             </div>
                         ))}

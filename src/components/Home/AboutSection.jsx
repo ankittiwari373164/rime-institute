@@ -21,7 +21,7 @@ const AboutSection = () => {
                         </h2>
                         <p className="text-gray-600 mb-6 leading-relaxed">
                             RIME is a premier educational institution committed to providing world-class education
-                            and fostering innovation. With state-of-the-art infrastructure, experienced faculty,
+                            and fostering innovation. And this college is affiliated to Maharshi Dayanand University, Rohtak and approved by AICTE, New Delhi. With state-of-the-art infrastructure, experienced faculty,
                             and industry collaborations, we ensure holistic development of students.
                         </p>
                         <p className="text-gray-600 mb-8 leading-relaxed">
@@ -41,7 +41,7 @@ const AboutSection = () => {
                         transition={{ duration: 1 }}
                         className="relative h-100 rounded-lg overflow-hidden shadow-2xl">
                         <ImageWithFallback
-                            src="/rime-2.jpeg"
+                            src="/rime-6.jpeg"
                             alt="RIME Campus"
                             className="w-full h-full object-cover"
                         />
