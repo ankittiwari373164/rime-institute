@@ -1,6 +1,7 @@
 import React from 'react'
 import { ImageWithFallback } from '../utils/ImageWithFallback';
 import { motion } from 'motion/react';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
@@ -23,9 +24,11 @@ const Header = () => {
           className="text-5xl md:text-7xl mb-8 font-bold leading-tight overflow-y-hidden">
           Transforming Knowledge into <span className="text-[#C9A961]">Technology</span>
         </motion.h1>
+        <Link to={'/apply'}>
         <button className="bg-[#C9A961] cursor-pointer text-white px-10 py-4 rounded text-lg font-semibold hover:bg-[#b89851] transition-colors">
           REGISTER NOW
         </button>
+        </Link>
       </div>
     </section>
   )

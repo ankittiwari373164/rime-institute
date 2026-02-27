@@ -13,7 +13,7 @@ const FacultySection = () => {
   const facultyData = [
     {
       name: "Sh, Yashvir Dagar",
-      role: "Chairman",
+      role: "Chairman at RIME",
       image: "./director.jpeg",
     },
     {
@@ -23,7 +23,7 @@ const FacultySection = () => {
     },
     {
       name: "Deeksha Singh",
-      role: "HOD (CSE Deptt.)",
+      role: "HOD (CSE Deptt.) at RIME",
       image: "./deeksha.jpg",
     },
     
@@ -44,7 +44,7 @@ const FacultySection = () => {
         </div>
 
         {/* Faculty Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 lg:mx-30 mx-10 gap-25 mt-32">
+        <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 lg:mx-30 mx-10 gap-15 mt-32">
           {facultyData.map((member, index) => (
             <div key={index} className="relative flex flex-col items-center">
 
@@ -59,10 +59,6 @@ const FacultySection = () => {
                       e.target.style.display = 'none';
                     }}
                   />
-                  {/* Fallback SVG Icon if image fails */}
-                  <svg className="w-20 h-20 text-gray-400 absolute pointer-events-none" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-                  </svg>
                 </div>
               </div>
 
