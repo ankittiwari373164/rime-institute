@@ -7,7 +7,7 @@ const Placement = () => {
   return (
     <div className='mt-20'>
         <HeaderPlacement />
-        <div className='my-5 grid lg:grid-cols-2 md:grid-cols-2 gap-5 lg:mx-20 md:mx-15 mx-8'>
+        <div className='my-5 grid lg:grid-cols-3 md:grid-cols-3 gap-5 lg:mx-20 md:mx-15 mx-8'>
         { placementData.map((item, index) => {
             return (
                 <div key={index}>

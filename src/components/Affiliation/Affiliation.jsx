@@ -127,7 +127,7 @@ const Affiliation = () => {
         </div>
 
         {/* Cards Grid - 4 Column Layout */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid lg:mx-0 md:mx-0 mx-10 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {accreditations.map((item) => (
             <AccreditationCard key={item.id} {...item} />
           ))}

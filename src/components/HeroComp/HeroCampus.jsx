@@ -2,14 +2,14 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { ChevronLeft, ChevronRight, GraduationCap, MapPin, Pause, Play } from 'lucide-react';
 
 const IMAGES = [
-  'https://images.unsplash.com/photo-1541339907198-e08756defeec?auto=format&fit=crop&q=80&w=2000',
-  'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&q=80&w=2000',
-  'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&q=80&w=2000',
+  '/rime-1.jpeg',
+  '/rime-11.jpeg',
+  '/rime-6.jpeg',
   'https://images.unsplash.com/photo-1519452635265-7b1fbfd1e4e0?auto=format&fit=crop&q=80&w=2000',
-  'https://images.unsplash.com/photo-1498243639391-a647421c3829?auto=format&fit=crop&q=80&w=2000',
-  'https://images.unsplash.com/photo-1592280771190-3e2e4d571952?auto=format&fit=crop&q=80&w=2000',
-  'https://images.unsplash.com/photo-1607237138185-efd9571f9f90?auto=format&fit=crop&q=80&w=2000',
-  'https://images.unsplash.com/photo-1525921429624-479b6a29d84c?auto=format&fit=crop&q=80&w=2000'
+  '/rime-8.jpeg',
+  '/event-3.jpeg',
+  '/rime-10.jpeg',
+  '/rime-12.jpeg'
 ];
 
 const STATS = [

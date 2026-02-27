@@ -50,4 +50,8 @@ export const courses = [
     "B.Tech in Mechanical Engineering (ME)",
     "B.Tech in Electrical Engineering (EE)",
     "B.Tech in Electronics & Communication Engineering (ECE)",
+    "Bachelor of Business Administration (BBA)",
+    "Bachelor of Computer Applications (BCA)",
+    "Bachelor of Education (B.Ed)",
+    "Master of Education (M.Ed)"
 ]

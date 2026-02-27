@@ -29,15 +29,6 @@ const PlacementCard = ({ student }) => {
           {student.role && (
             <p className="text-gray-500 text-xs italic">{student.role}</p>
           )}
-
-          <div className="mt-3">
-            <span
-              className="font-bold text-lg"
-              style={{ color: brandGold }}
-            >
-              CTC {student.ctc}
-            </span>
-          </div>
         </div>
 
         {/* Logo Area */}

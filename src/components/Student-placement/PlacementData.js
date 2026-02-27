@@ -5,7 +5,7 @@ export const placementData = [
     degree: "B.Tech (CSE)",
     company: "SenRa",
     studentImg:
-      "./boy.png",
+      "./boy-1.jpeg",
     logoText: "SenRa",
   },
   {
@@ -25,16 +25,7 @@ export const placementData = [
     role: "General Manager",
     company: "RR Kabel",
     studentImg:
-      "./girl2.png",
+      "./girl2.jpeg",
     logoText: "RR KABEL",
-  },
-  {
-    id: 4,
-    name: "Priya Sharma",
-    degree: "B.Tech (IT)",
-    role: "Product Analyst",
-    company: "Microsoft",
-    studentImg:"./girl.png",
-    logoText: "Microsoft",
-  },
+  }
 ];
