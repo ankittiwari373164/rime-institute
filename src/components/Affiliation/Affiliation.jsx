@@ -46,7 +46,7 @@ const NAACLogo = () => (
 
 const AccreditationCard = ({ logo, title, subtitle, status, isPending = false }) => (
   <div className="flex flex-col items-center p-8 bg-white border border-gray-200 rounded-3xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 w-full text-center group">
-    <div className="mb-6 transform group-hover:scale-110 transition-transform duration-500 ease-out">
+    <div className="mb-6 scale-130 transform transition-transform duration-500 ease-out">
       {logo()}
     </div>
     
