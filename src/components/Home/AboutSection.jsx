@@ -41,7 +41,7 @@ const AboutSection = () => {
                         transition={{ duration: 1 }}
                         className="relative h-100 rounded-lg overflow-hidden shadow-2xl">
                         <ImageWithFallback
-                            src="/campus-image-rime.jpeg"
+                            src="/rattan-image-2.jpeg"
                             alt="RIME Campus"
                             className="w-full h-full object-cover"
                         />
