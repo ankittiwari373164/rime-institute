@@ -14,7 +14,7 @@ const FacultySection = () => {
     {
       name: "Sh, Yashvir Dagar",
       role: "Chairman at RIME",
-      image: "./director.jpeg",
+      image: "chairmannewimage.jpeg",
     },
     {
       name: "Dr. Shyam Sunder Kaushik",

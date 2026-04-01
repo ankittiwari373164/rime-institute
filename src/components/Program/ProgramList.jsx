@@ -12,15 +12,19 @@ const ProgramList = () => {
   const server_url = import.meta.env.VITE_SERVER_URL;
 
   const fetchData = async () => {
-    const response = await axios.get(`${server_url}/api/courses`);
-    setData(response.data);
-    setLoading(false);
-  }
+    try {
+      const response = await axios.get(`${server_url}/api/courses`);
+      setData(response.data.data); // ✅ FIXED
+    } catch (error) {
+      console.error("Error fetching courses:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
-    fetchData()
-  }, [])
-
+    fetchData();
+  }, []);
 
   const categories = [
     { id: "all", label: "All Programs" },
@@ -28,139 +32,7 @@ const ProgramList = () => {
     { id: "pg", label: "Postgraduate" },
   ];
 
-  const programs = [
-    {
-      category: "ug",
-      title: "B.Tech in Computer Science & Engineering",
-      duration: "4 Years",
-      seats: "180",
-      eligibility: "10+2 with Physics, Chemistry & Mathematics (60% minimum)",
-      highlights: [
-        "Industry-oriented curriculum",
-        "Hands-on projects and internships",
-        "Expert faculty from IITs and NITs",
-        "Excellent placement record",
-      ],
-    },
-    {
-      category: "ug",
-      title: "B.Tech in Electronics & Communication",
-      duration: "4 Years",
-      seats: "120",
-      eligibility: "10+2 with PCM (60% minimum)",
-      highlights: [
-        "State-of-the-art laboratories",
-        "Focus on VLSI and Embedded Systems",
-        "Industry collaborations",
-        "Research opportunities",
-      ],
-    },
-    {
-      category: "ug",
-      title: "B.Tech in Mechanical Engineering",
-      duration: "4 Years",
-      seats: "120",
-      eligibility: "10+2 with PCM (60% minimum)",
-      highlights: [
-        "Modern workshops and labs",
-        "CAD/CAM training",
-        "Industry visits and internships",
-        "Robotics and automation focus",
-      ],
-    },
-    {
-      category: "ug",
-      title: "Bachelor of Business Administration (BBA)",
-      duration: "3 Years",
-      seats: "60",
-      eligibility: "10+2 in any stream (50% minimum)",
-      highlights: [
-        "Comprehensive business curriculum",
-        "Case study methodology",
-        "Industry mentorship program",
-        "Entrepreneurship development",
-      ],
-    },
-    {
-      category: "pg",
-      title: "Master of Business Administration (MBA)",
-      duration: "2 Years",
-      seats: "180",
-      eligibility: "Bachelor's degree in any discipline (50% minimum)",
-      highlights: [
-        "Dual specialization options",
-        "Industry-experienced faculty",
-        "Live projects and internships",
-        "Global exposure programs",
-      ],
-    },
-    {
-      category: "pg",
-      title: "Master of Computer Applications (MCA)",
-      duration: "2 Years",
-      seats: "60",
-      eligibility: "Bachelor's degree with Mathematics (50% minimum)",
-      highlights: [
-        "Advanced programming and development",
-        "Cloud computing and AI/ML modules",
-        "Industry certifications",
-        "100% placement assistance",
-      ],
-    },
-    {
-      category: "pg",
-      title: "M.Tech in Computer Science",
-      duration: "2 Years",
-      seats: "40",
-      eligibility: "B.Tech/BE in relevant field (60% minimum)",
-      highlights: [
-        "Research-oriented curriculum",
-        "Specializations in AI, ML, Cybersecurity",
-        "Publications and conferences",
-        "Industry partnerships",
-      ],
-    },
-    {
-      category: "pg",
-      title: "M.Tech in VLSI Design",
-      duration: "2 Years",
-      seats: "30",
-      eligibility: "B.Tech/BE in ECE/EEE (60% minimum)",
-      highlights: [
-        "Advanced VLSI labs",
-        "Industry-standard tools",
-        "Research projects",
-        "Semiconductor industry tie-ups",
-      ],
-    },
-    {
-      category: "research",
-      title: "Ph.D. in Engineering",
-      duration: "3-5 Years",
-      seats: "Variable",
-      eligibility: "M.Tech/ME with minimum 60% or equivalent CGPA",
-      highlights: [
-        "Full-time and part-time options",
-        "Research scholarships available",
-        "Access to advanced facilities",
-        "Publications in reputed journals",
-      ],
-    },
-    {
-      category: "research",
-      title: "Ph.D. in Management",
-      duration: "3-5 Years",
-      seats: "Variable",
-      eligibility: "MBA/PGDM with minimum 60% or equivalent CGPA",
-      highlights: [
-        "Interdisciplinary research",
-        "Industry collaboration",
-        "Conference participation",
-        "Teaching assistantship opportunities",
-      ],
-    },
-  ];
-
+  // ✅ Dynamic Filtering
   const filteredPrograms =
     selectedCategory === "all"
       ? data
@@ -175,10 +47,11 @@ const ProgramList = () => {
               <button
                 key={category.id}
                 onClick={() => setSelectedCategory(category.id)}
-                className={`px-6 py-3 cursor-pointer rounded-lg font-semibold transition-colors ${selectedCategory === category.id
-                  ? "bg-[#C9A961] text-white"
-                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                  }`}
+                className={`px-6 py-3 cursor-pointer rounded-lg font-semibold transition-colors ${
+                  selectedCategory === category.id
+                    ? "bg-[#C9A961] text-white"
+                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                }`}
               >
                 {category.label}
               </button>
@@ -188,13 +61,15 @@ const ProgramList = () => {
       </section>
 
       {/* Programs List */}
-      {loading ? <div className='spinner'></div> : (
+      {loading ? (
+        <Loader /> // ✅ Better than spinner div
+      ) : (
         <section className="py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid gap-8">
               {filteredPrograms.map((program, index) => (
                 <div
-                  key={index}
+                  key={program._id || index} // ✅ better key
                   className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
                 >
                   <div className="p-8">
@@ -215,7 +90,7 @@ const ProgramList = () => {
                               </div>
                               <div className="flex items-center gap-1">
                                 <BookOpen className="w-4 h-4" />
-                                <span>{program.seats} seats</span>
+                                <span>{program.seat} seats</span> {/* ✅ FIXED */}
                               </div>
                             </div>
                           </div>
@@ -229,7 +104,7 @@ const ProgramList = () => {
                         <div>
                           <h4 className="font-semibold text-gray-900 mb-2">Program Highlights:</h4>
                           <ul className="grid md:grid-cols-2 gap-2">
-                            {program.highlights.map((highlight, idx) => (
+                            {program.highlights?.map((highlight, idx) => (
                               <li key={idx} className="flex items-start gap-2 text-gray-600">
                                 <ArrowRight className="w-4 h-4 text-blue-600 shrink-0 mt-1" />
                                 <span>{highlight}</span>
@@ -246,11 +121,12 @@ const ProgramList = () => {
                           </Link>
                         </button>
                         <a href="/brochure.pdf" download>
-                          <button download className="flex-1 lg:flex-none cursor-pointer bg-gray-100 text-gray-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-colors">
+                          <button className="flex-1 lg:flex-none cursor-pointer bg-gray-100 text-gray-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-colors">
                             Download Brochure
                           </button>
                         </a>
                       </div>
+
                     </div>
                   </div>
                 </div>
@@ -260,7 +136,7 @@ const ProgramList = () => {
         </section>
       )}
     </>
-  )
-}
+  );
+};
 
 export default ProgramList;

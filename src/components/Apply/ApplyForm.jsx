@@ -1,114 +1,187 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import ProgressBar from './ProgressBar.jsx';
-import ApplicationForm from './ApplicationForm.jsx';
-import SuccessSubmitBox from './SuccessSubmitBox.jsx';
+import SuccessSubmitBox from "./SuccessSubmitBox.jsx";
 
 const ApplyForm = () => {
-    const [currentStep, setCurrentStep] = useState(1);
-    const [submitted, setSubmitted] = useState(false);
-    
-    // 1. ADDED 'trigger' to the destructured useForm object
-    const { register, handleSubmit, formState: { errors }, watch, trigger } = useForm({
-        mode: "onChange",
-    });
+  const [submitted, setSubmitted] = useState(false);
+  const [courses, setCourses] = useState([]);
 
-    const formData = watch();
-    const totalSteps = 5;
-    const progress = ((currentStep - 1) / (totalSteps - 1)) * 100;
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
-    // 2. UPDATED nextStep to be async and validate fields before moving forward
-    const nextStep = async () => {
-        let fieldsToValidate = [];
-
-        // Map out which inputs belong to which step
-        switch (currentStep) {
-            case 1:
-                fieldsToValidate = ['firstName', 'lastName', 'email', 'phone', 'dob', 'gender', 'nationality'];
-                break;
-            case 2:
-                fieldsToValidate = ['board10', 'percentage10', 'board12', 'percentage12', 'college', 'gpa'];
-                break;
-            case 3:
-                fieldsToValidate = ['program', 'specialization'];
-                break;
-            case 4:
-                // Assuming Step 4 is Address based on the previous code
-                fieldsToValidate = ['street', 'city', 'state', 'pincode']; 
-                break;
-            case 5:
-                // Add any field names for Step 5 here if they need validation before final submit
-                fieldsToValidate = []; 
-                break;
-            default:
-                fieldsToValidate = [];
-        }
-
-        // Wait for react-hook-form to validate the specified fields
-        const isStepValid = await trigger(fieldsToValidate);
-
-        // Only move to the next step if validation passes
-        if (isStepValid && currentStep < totalSteps) {
-            setCurrentStep(currentStep + 1);
-        }
-    };
-
-    const prevStep = () => {
-        if (currentStep > 1) {
-            setCurrentStep(currentStep - 1);
-        }
-    };
-
-    if (submitted) {
-        return (
-            <div className="mt-20 min-h-screen bg-linear-to-br from-gray-50 to-gray-100 py-12 px-4 sm:px-6 lg:px-8 flex items-center justify-center">
-                <SuccessSubmitBox />
-            </div>
+  // 🔥 Fetch Courses (Dynamic)
+  useEffect(() => {
+    const fetchCourses = async () => {
+      try {
+        const res = await fetch(
+          `${import.meta.env.VITE_SERVER_URL}/api/courses`,
         );
+        const data = await res.json();
+
+        setCourses(data.data); // ✅ correct
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    fetchCourses();
+  }, []);
+
+  // 🔥 Submit Form
+  const onSubmit = async (formData) => {
+    try {
+      const res = await fetch(
+        `${import.meta.env.VITE_SERVER_URL}/api/apply/user-apply`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData), // course = ObjectId
+        },
+      );
+
+      const result = await res.json();
+
+      if (result.success) {
+        setSubmitted(true);
+      }
+    } catch (err) {
+      console.error(err);
     }
+  };
 
+  // ✅ Success UI
+  if (submitted) {
     return (
-        <div className="mt-30 min-h-screen bg-linear-to-br from-gray-50 to-gray-100 py-12 px-4 sm:px-6 lg:px-8">
-            <div className="max-w-2xl mx-auto">
-                {/* Header */}
-                <div className="text-center mb-12">
-                    <h1 className="text-3xl sm:text-4xl font-bold text-foreground mb-2 overflow-y-hidden">
-                        Admission Application
-                    </h1>
-                    <p className="text-foreground/70">
-                        Join RIME and Shape Your Future
-                    </p>
-                </div>
-
-                {/* Progress Bar */}
-                <ProgressBar currentStep={currentStep} totalSteps={totalSteps} progress={progress} />
-
-                {/* Form Container */}
-                <div className="bg-white rounded-2xl shadow-xl p-8 mb-8">
-                    <ApplicationForm 
-                        currentStep={currentStep} 
-                        totalSteps={totalSteps} 
-                        register={register} 
-                        prevStep={prevStep} 
-                        handleSubmit={handleSubmit} 
-                        nextStep={nextStep} 
-                        formData={formData} 
-                        errors={errors} 
-                        setSubmitted={setSubmitted} 
-                    />
-                </div>
-
-                {/* Info Box */}
-                <div className="bg-blue-50 border border-primary/20 rounded-lg p-6 text-center">
-                    <p className="text-sm text-foreground/70">
-                        All fields marked with <span className="text-red-500 font-bold">*</span> are required.
-                        <br />
-                        Your information will be kept confidential and secure.
-                    </p>
-                </div>
-            </div>
-        </div>
+      <div className="min-h-screen flex items-center justify-center bg-[#f9f7f2]">
+        <SuccessSubmitBox />
+      </div>
     );
-}
+  }
+
+  return (
+    <div className="min-h-screen bg-[#f9f7f2] flex items-center justify-center px-4">
+      <div className="w-full mt-10 max-w-md">
+        {/* Header */}
+        <div className="text-center mb-8">
+          <h1 className="text-3xl font-semibold text-gray-800">Apply Now</h1>
+          <p className="text-gray-500 mt-1">Start your admission process</p>
+        </div>
+
+        {/* Form */}
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="bg-white p-8 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.05)] space-y-4 border border-gray-100"
+        >
+          {/* Full Name */}
+          <div>
+            <input
+              type="text"
+              placeholder="Full Name"
+              {...register("fullName", { required: true })}
+              className="w-full p-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#b89851]/40"
+            />
+            {errors.fullName && (
+              <p className="text-red-500 text-sm mt-1">Required</p>
+            )}
+          </div>
+
+          {/* Email */}
+          <div>
+            <input
+              type="email"
+              placeholder="Email"
+              {...register("email", { required: true })}
+              className="w-full p-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#b89851]/40"
+            />
+            {errors.email && (
+              <p className="text-red-500 text-sm mt-1">Required</p>
+            )}
+          </div>
+
+          {/* Phone */}
+          <div>
+            <input
+              type="tel"
+              placeholder="Phone"
+              {...register("phone", { required: true })}
+              className="w-full p-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#b89851]/40"
+            />
+            {errors.phone && (
+              <p className="text-red-500 text-sm mt-1">Required</p>
+            )}
+          </div>
+
+          {/* 🔥 Course Dropdown (Dynamic) */}
+          <div>
+            <select
+              {...register("course", { required: true })}
+              className="w-full p-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#b89851]/40"
+            >
+              <option value="">Select Course</option>
+
+              {courses.map((course) => (
+                <option key={course._id} value={course._id}>
+                  {course.title}
+                </option>
+              ))}
+            </select>
+
+            {errors.course && (
+              <p className="text-red-500 text-sm mt-1">Required</p>
+            )}
+          </div>
+
+          {/* Gender */}
+          <div>
+            <select
+              {...register("gender", { required: true })}
+              className="w-full p-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#b89851]/40"
+            >
+              <option value="">Select Gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
+            </select>
+
+            {errors.gender && (
+              <p className="text-red-500 text-sm mt-1">Required</p>
+            )}
+          </div>
+
+          {/* Address */}
+          <div>
+            <input
+              type="text"
+              placeholder="Address"
+              {...register("address", { required: true })}
+              className="w-full p-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#b89851]/40"
+            />
+            {errors.address && (
+              <p className="text-red-500 text-sm mt-1">Required</p>
+            )}
+          </div>
+
+          {/* Submit */}
+          <button
+            type="submit"
+            className="w-full bg-[#b89851] hover:bg-[#a58647] text-white p-3 rounded-lg font-medium transition shadow-md"
+          >
+            Submit Application
+          </button>
+        </form>
+
+        {/* Footer Note */}
+        <div className="mt-6 text-center text-sm text-gray-500">
+          Your information is safe and secure.
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default ApplyForm;
