@@ -1,7 +1,9 @@
 import { BookOpen, Clock, Eye, Laptop, Users, Wifi } from 'lucide-react';
+import { useSEO } from '../hooks/useSEO';
 import React from 'react'
 
 const Library = () => {
+  useSEO();
   return (
     <div className="w-full mt-20">
       {/* Hero Section */}
