@@ -1,6 +1,6 @@
 import { Award, Beaker, Cpu, Users, Zap } from 'lucide-react';
 import { useSEO } from '../hooks/useSEO';
-import React from 'react';
+import React from 'react'
 
 const Lab = () => {
   useSEO();
