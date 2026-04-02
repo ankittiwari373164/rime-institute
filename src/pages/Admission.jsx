@@ -7,6 +7,7 @@ import FeeStructure from "../components/Admission/FeeStructure";
 import ScholarshipFinancialAid from "../components/Admission/ScholarshipFinancialAid";
 import AdmissionContact from "../components/Admission/AdmissionContact";
 import { Helmet } from "react-helmet-async";
+import { useSEO } from '../hooks/useSEO';
 const Admission = () => {
   return (
     <>
@@ -18,6 +19,7 @@ const Admission = () => {
         />
       </Helmet>
       <div className="mt-30">
+        useSEO();
         <HeroAdmission />
         <QuickAction />
         <AdmissionProcess />
