@@ -4,7 +4,7 @@ import Gallery from "../components/Gallery/Gallery";
 import { Helmet } from "react-helmet-async";
 import { useSEO } from '../hooks/useSEO';
 const Gallary = () => {
-  useSEO();
+  useSEO('gallery');
   return (
     <>
       <Helmet>
