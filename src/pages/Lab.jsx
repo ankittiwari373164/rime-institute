@@ -1,7 +1,9 @@
 import { Award, Beaker, Cpu, Users, Zap } from 'lucide-react';
+import { useSEO } from '../hooks/useSEO';
 import React from 'react'
 
 const Lab = () => {
+  useSEO();
   return (
     <div className="w-full mt-20">
       {/* Hero Section */}
