@@ -4,7 +4,9 @@ import ProgramList from '../components/Program/ProgramList';
 import Specialize from '../components/Program/Specialize';
 import CTA from '../components/Program/CTA';
 import { Helmet } from 'react-helmet-async';
+import { useSEO } from '../hooks/useSEO';
 const Program = () => {
+  useSEO();
   return (
     <>  
     <Helmet>
