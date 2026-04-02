@@ -9,6 +9,7 @@ import AdmissionContact from "../components/Admission/AdmissionContact";
 import { Helmet } from "react-helmet-async";
 import { useSEO } from '../hooks/useSEO';
 const Admission = () => {
+  useSEO();
   return (
     <>
       <Helmet>
@@ -19,7 +20,6 @@ const Admission = () => {
         />
       </Helmet>
       <div className="mt-30">
-        useSEO();
         <HeroAdmission />
         <QuickAction />
         <AdmissionProcess />
