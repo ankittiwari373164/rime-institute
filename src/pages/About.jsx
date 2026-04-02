@@ -8,6 +8,7 @@ import Accreditations from "../components/About/Accreditations";
 import { Helmet } from "react-helmet-async";
 import { useSEO } from '../hooks/useSEO';
 const About = () => {
+  useSEO();
   return (
     <>
       <Helmet>
@@ -24,7 +25,6 @@ const About = () => {
         />
       </Helmet>
       <div className="mt-30">
-        useSEO();
         <Hero />
         <IntroSection />
         <VisionMission />
