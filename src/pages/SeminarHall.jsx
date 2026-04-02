@@ -1,7 +1,9 @@
 import { Mic, Projector, Users, Wifi } from 'lucide-react';
+import { useSEO } from '../hooks/useSEO';
 import React from 'react'
 
 const SeminarHall = () => {
+  useSEO('seminar-hall');
   return (
     <div className="w-full mt-20">
       {/* Hero Section */}
