@@ -4,6 +4,7 @@ import CardInfo from "../components/Contact/CardInfo";
 import ContactForm from "../components/Contact/ContactForm";
 import CTA from "../components/Contact/CTA";
 import { Helmet } from "react-helmet-async";
+import { useSEO } from '../hooks/useSEO';
 const Contact = () => {
   return (
     <>
@@ -15,6 +16,7 @@ const Contact = () => {
         />
       </Helmet>
       <div className="mt-30">
+        useSEO();
         <HeroContact />
         <CardInfo />
         <ContactForm />
