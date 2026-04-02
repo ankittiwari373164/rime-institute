@@ -1,12 +1,14 @@
 /**
  * ================================================================
- *  MANOFOX SEO HOOK — rime.co.in
+ *  MANOFOX SEO HOOK — rime.co.in  (v2 — Auto-page detection)
  *  File: src/hooks/useSEO.js
  *
- *  Drop this file in your project and import it in every page.
- *  It auto-fetches trending keywords from Manofox Hub and
- *  updates document.title + all meta tags on every route change.
- *  Also tracks page visits for your Manofox Dashboard.
+ *  HOW AUTO-DETECTION WORKS:
+ *  - On first visit to ANY page (e.g. /admission), the hook
+ *    calls /api/seo/rime?page=admission
+ *  - The Hub auto-creates that page in the DB with real keywords
+ *  - Page INSTANTLY appears on your Manofox Dashboard
+ *  - No fake default pages, no manual setup needed
  * ================================================================
  */
 
@@ -14,203 +16,185 @@ import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
 // ── CONFIG ────────────────────────────────────────────────────────────────────
-const MFOX_HUB     = 'https://manofox-seo-hub-v3.vercel.app'; // ← your hub URL
-const MFOX_SITE_ID = 'rime';                                   // ← your site ID
+const MFOX_HUB     = 'https://manofox-seo-hub-v3.vercel.app';
+const MFOX_SITE_ID = 'rime';
 
-// ── In-memory cache so we don't re-fetch on re-renders ────────────────────────
+// ── In-memory cache — slug → seo data ────────────────────────────────────────
 const _cache = new Map();
 
-// ── Map React Router paths to page slugs ──────────────────────────────────────
-// Add or change any path→slug mapping to match your routes
-const PATH_TO_SLUG = {
-  '/'               : 'home',
-  '/about'          : 'about',
-  '/admission'      : 'admission',
-  '/contact'        : 'contact',
-  '/gallery'        : 'gallery',
-  '/lab'            : 'lab',
-  '/library'        : 'library',
-  '/login'          : 'login',
-  '/pool'           : 'pool',
-  '/program'        : 'program',
-  '/seminar-hall'   : 'seminar-hall',
-  '/playground'     : 'playground',
-};
-
 /**
- * getSeoSlug — converts a React Router pathname to a Manofox page slug
+ * pathToSlug — converts React Router pathname to a clean page slug
+ * '/admission'     → 'admission'
+ * '/seminar-hall'  → 'seminar-hall'
+ * '/services/bca'  → 'services-bca'
+ * '/'              → 'home'
  */
-function getSeoSlug(pathname) {
-  if (PATH_TO_SLUG[pathname]) return PATH_TO_SLUG[pathname];
-  // Auto-convert: '/some-page' → 'some-page'
-  const slug = pathname.replace(/^\//, '').replace(/\/$/, '').replace(/\//g, '-') || 'home';
-  return slug;
+function pathToSlug(pathname) {
+    const clean = pathname
+        .replace(/^\//, '')    // remove leading /
+        .replace(/\/$/, '')    // remove trailing /
+        .replace(/\//g, '-')   // nested paths → dashes
+        .toLowerCase()
+        .trim();
+    return clean || 'home';
 }
 
 /**
- * setMeta — create or update a <meta> tag in document.head
+ * setMeta — create or update a <meta> tag
  */
 function setMeta(nameOrProp, value, isProp = false) {
-  if (!value) return;
-  const attr = isProp ? 'property' : 'name';
-  let el = document.querySelector(`meta[${attr}="${nameOrProp}"]`);
-  if (!el) {
-    el = document.createElement('meta');
-    el.setAttribute(attr, nameOrProp);
-    document.head.appendChild(el);
-  }
-  el.setAttribute('content', value);
+    if (!value) return;
+    const attr = isProp ? 'property' : 'name';
+    let el = document.querySelector(`meta[${attr}="${nameOrProp}"]`);
+    if (!el) {
+        el = document.createElement('meta');
+        el.setAttribute(attr, nameOrProp);
+        document.head.appendChild(el);
+    }
+    el.setAttribute('content', value);
 }
 
 /**
- * setCanonical — create or update the canonical link tag
+ * setCanonical — update canonical link
  */
 function setCanonical(url) {
-  let el = document.querySelector('link[rel="canonical"]');
-  if (!el) {
-    el = document.createElement('link');
-    el.setAttribute('rel', 'canonical');
-    document.head.appendChild(el);
-  }
-  el.setAttribute('href', url);
+    let el = document.querySelector('link[rel="canonical"]');
+    if (!el) {
+        el = document.createElement('link');
+        el.setAttribute('rel', 'canonical');
+        document.head.appendChild(el);
+    }
+    el.setAttribute('href', url);
 }
 
 /**
- * setJsonLd — create or update the Schema.org JSON-LD script tag
+ * setJsonLd — update Schema.org JSON-LD
  */
 function setJsonLd(seo, canonical) {
-  let el = document.getElementById('mfox-jsonld');
-  if (!el) {
-    el = document.createElement('script');
-    el.type = 'application/ld+json';
-    el.id   = 'mfox-jsonld';
-    document.head.appendChild(el);
-  }
-  el.textContent = JSON.stringify({
-    '@context'  : 'https://schema.org',
-    '@graph'    : [
-      {
-        '@type'      : 'EducationalOrganization',
-        '@id'        : 'https://rime.co.in/#organization',
-        'name'       : 'Rattan Institute of Management and Engineering',
-        'url'        : 'https://rime.co.in',
-        'description': seo.description || '',
-      },
-      {
-        '@type': 'WebSite',
-        '@id'  : 'https://rime.co.in/#website',
-        'url'  : 'https://rime.co.in',
-        'name' : 'RIME',
-      },
-      {
-        '@type'      : 'WebPage',
-        '@id'        : canonical,
-        'url'        : canonical,
-        'name'       : seo.title || '',
-        'description': seo.description || '',
-        'isPartOf'   : { '@id': 'https://rime.co.in/#website' },
-      },
-    ],
-  });
+    let el = document.getElementById('mfox-jsonld');
+    if (!el) {
+        el = document.createElement('script');
+        el.type = 'application/ld+json';
+        el.id   = 'mfox-jsonld';
+        document.head.appendChild(el);
+    }
+    el.textContent = JSON.stringify({
+        '@context' : 'https://schema.org',
+        '@graph'   : [
+            {
+                '@type'       : 'EducationalOrganization',
+                '@id'         : 'https://rime.co.in/#organization',
+                'name'        : 'Rattan Institute of Management and Engineering',
+                'alternateName': 'RIME',
+                'url'         : 'https://rime.co.in',
+                'description' : seo.description || '',
+                'address'     : {
+                    '@type'         : 'PostalAddress',
+                    'addressLocality': 'Rohtak',
+                    'addressRegion' : 'Haryana',
+                    'addressCountry': 'IN'
+                }
+            },
+            {
+                '@type': 'WebSite',
+                '@id'  : 'https://rime.co.in/#website',
+                'url'  : 'https://rime.co.in',
+                'name' : 'RIME'
+            },
+            {
+                '@type'      : 'WebPage',
+                '@id'        : canonical,
+                'url'        : canonical,
+                'name'       : seo.title || '',
+                'description': seo.description || '',
+                'isPartOf'   : { '@id': 'https://rime.co.in/#website' }
+            }
+        ]
+    });
 }
 
 /**
- * applyAllSeoTags — applies all SEO data to document.head
+ * applyAllTags — applies complete SEO data to document.head
  */
-function applyAllSeoTags(seo, pathname) {
-  const canonical = 'https://rime.co.in' + pathname;
-
-  // Title
-  if (seo.title) document.title = seo.title;
-
-  // Standard meta
-  setMeta('description', seo.description);
-  setMeta('keywords',    seo.keywords);           // ← All 20 trending keywords here
-  setMeta('robots',      seo.robots || 'index, follow');
-  setMeta('googlebot',   seo.robots || 'index, follow');
-
-  // Open Graph
-  setMeta('og:title',       seo.ogTitle       || seo.title,       true);
-  setMeta('og:description', seo.ogDescription || seo.description, true);
-  setMeta('og:url',         canonical,                            true);
-  setMeta('og:type',        'website',                            true);
-  setMeta('og:site_name',   'RIME - Rattan Institute',            true);
-
-  // Twitter
-  setMeta('twitter:title',       seo.ogTitle       || seo.title);
-  setMeta('twitter:description', seo.ogDescription || seo.description);
-
-  // Canonical
-  setCanonical(canonical);
-
-  // Schema.org JSON-LD
-  setJsonLd(seo, canonical);
+function applyAllTags(seo, pathname) {
+    const canonical = 'https://rime.co.in' + pathname;
+    if (seo.title)      document.title = seo.title;
+    setMeta('description', seo.description);
+    setMeta('keywords',    seo.keywords);   // ← All 20 trending keywords
+    setMeta('robots',      seo.robots || 'index, follow');
+    setMeta('googlebot',   seo.robots || 'index, follow');
+    setMeta('og:title',       seo.ogTitle       || seo.title,        true);
+    setMeta('og:description', seo.ogDescription || seo.description,  true);
+    setMeta('og:url',         canonical,                             true);
+    setMeta('og:type',        'website',                             true);
+    setMeta('og:site_name',   'RIME - Rattan Institute',             true);
+    setMeta('twitter:title',       seo.ogTitle       || seo.title);
+    setMeta('twitter:description', seo.ogDescription || seo.description);
+    setCanonical(canonical);
+    setJsonLd(seo, canonical);
 }
 
 /**
- * trackVisit — sends page visit data to Manofox Hub for analytics
+ * trackVisit — sends analytics to Manofox Hub
  */
 function trackVisit(slug) {
-  try {
-    const referrer = document.referrer || 'Direct';
-    const device   = /mobile|android|iphone|ipad/i.test(navigator.userAgent) ? 'Mobile' : 'Desktop';
-    fetch(`${MFOX_HUB}/api/track`, {
-      method    : 'POST',
-      headers   : { 'Content-Type': 'application/json' },
-      body      : JSON.stringify({
-        siteId  : MFOX_SITE_ID,
-        page    : slug,
-        referrer: referrer,
-        device  : device,
-      }),
-      keepalive : true,
-    }).catch(() => {});
-  } catch (_) {}
+    try {
+        const ref    = document.referrer || 'Direct';
+        const device = /mobile|android|iphone|ipad/i.test(navigator.userAgent) ? 'Mobile' : 'Desktop';
+        fetch(`${MFOX_HUB}/api/track`, {
+            method   : 'POST',
+            headers  : { 'Content-Type': 'application/json' },
+            body     : JSON.stringify({ siteId: MFOX_SITE_ID, page: slug, referrer: ref, device }),
+            keepalive: true
+        }).catch(() => {});
+    } catch (_) {}
 }
 
 /**
  * useSEO — the main hook
  *
- * Usage (two options):
+ * USAGE — just one line in any component:
+ *   useSEO();
  *
- * Option A — Auto-detect page from React Router URL (recommended):
- *   import { useSEO } from '../hooks/useSEO';
- *   function HomePage() {
- *     useSEO();   // auto-detects '/' → slug 'home'
- *     return <div>...</div>;
- *   }
+ * It will:
+ *  1. Detect the current URL path → slug
+ *  2. Hit the Hub → auto-creates the page in DB if first visit
+ *  3. The page APPEARS on your Manofox Dashboard immediately
+ *  4. Applies all SEO tags + keywords to the page
+ *  5. Tracks the visit for analytics
  *
- * Option B — Manual slug override:
- *   useSEO('admission');   // always uses 'admission' slug
+ * Optional manual override:
+ *   useSEO('gallery');  // force a specific slug
  */
 export function useSEO(manualSlug = null) {
-  const location = useLocation();
+    const location = useLocation();
 
-  useEffect(() => {
-    const slug = manualSlug || getSeoSlug(location.pathname);
+    useEffect(() => {
+        const slug = manualSlug || pathToSlug(location.pathname);
 
-    // Track visit immediately (non-blocking)
-    trackVisit(slug);
+        // Track visit immediately
+        trackVisit(slug);
 
-    // Serve from cache if available
-    if (_cache.has(slug)) {
-      applyAllSeoTags(_cache.get(slug), location.pathname);
-      return;
-    }
+        // Return cached data immediately if available
+        if (_cache.has(slug)) {
+            applyAllTags(_cache.get(slug), location.pathname);
+        }
 
-    // Fetch fresh SEO data from Hub
-    fetch(`${MFOX_HUB}/api/seo/${encodeURIComponent(MFOX_SITE_ID)}?page=${encodeURIComponent(slug)}`)
-      .then(r => r.ok ? r.json() : null)
-      .then(seo => {
-        if (!seo || !seo.title) return;
-        _cache.set(slug, seo);
-        applyAllSeoTags(seo, location.pathname);
-      })
-      .catch(() => {
-        // Hub unreachable — fallback meta tags already in index.html
-      });
+        // Always fetch fresh in background (Hub has 2h cache anyway)
+        const url = `${MFOX_HUB}/api/seo/${encodeURIComponent(MFOX_SITE_ID)}?page=${encodeURIComponent(slug)}`;
 
-  }, [location.pathname, manualSlug]);
+        fetch(url)
+            .then(r => r.ok ? r.json() : null)
+            .then(seo => {
+                if (!seo || !seo.title) return;
+                _cache.set(slug, seo);
+                applyAllTags(seo, location.pathname);
+            })
+            .catch(() => {
+                // Hub unreachable → index.html static tags are still there
+            });
+
+    }, [location.pathname, manualSlug]);
 }
 
 export { MFOX_SITE_ID, MFOX_HUB };
