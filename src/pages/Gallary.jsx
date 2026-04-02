@@ -2,7 +2,9 @@ import React from "react";
 import HeroGallery from "../components/Gallery/HeroGallery";
 import Gallery from "../components/Gallery/Gallery";
 import { Helmet } from "react-helmet-async";
+import { useSEO } from '../hooks/useSEO';
 const Gallary = () => {
+  useSEO();
   return (
     <>
       <Helmet>
