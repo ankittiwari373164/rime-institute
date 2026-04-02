@@ -6,6 +6,7 @@ import CoreValues from "../components/About/CoreValues";
 import Journey from "../components/About/Journey";
 import Accreditations from "../components/About/Accreditations";
 import { Helmet } from "react-helmet-async";
+import { useSEO } from '../hooks/useSEO';
 const About = () => {
   return (
     <>
@@ -23,6 +24,7 @@ const About = () => {
         />
       </Helmet>
       <div className="mt-30">
+        useSEO();
         <Hero />
         <IntroSection />
         <VisionMission />
