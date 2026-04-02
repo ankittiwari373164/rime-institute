@@ -13,7 +13,9 @@ import HeroCampus from "../components/HeroComp/HeroCampus";
 import RimeCampusStaff from "../components/RimeCampus/RimeCampusStaff";
 import Affiliation from "../components/Affiliation/Affiliation";
 import { Helmet } from "react-helmet-async";
+import { useSEO } from '../hooks/useSEO';
 const Home = () => {
+  useSEO();
   return (
     <>
       <Helmet>
