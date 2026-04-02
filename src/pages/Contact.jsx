@@ -6,6 +6,7 @@ import CTA from "../components/Contact/CTA";
 import { Helmet } from "react-helmet-async";
 import { useSEO } from '../hooks/useSEO';
 const Contact = () => {
+  useSEO();
   return (
     <>
       <Helmet>
@@ -16,7 +17,6 @@ const Contact = () => {
         />
       </Helmet>
       <div className="mt-30">
-        useSEO();
         <HeroContact />
         <CardInfo />
         <ContactForm />
