@@ -115,11 +115,13 @@ const ProgramList = () => {
                       </div>
 
                       <div className="lg:w-48 flex mx-auto lg:flex-col md:flex-row flex-col gap-3">
+                        <a href="/apply" >
                         <button className="flex-1 lg:w-auto md:w-fit w-48 lg:flex-none bg-[#C9A961]/90 text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#C9A961] cursor-pointer transition-colors">
                           <Link to={'/apply'}>
                             Apply Now
                           </Link>
                         </button>
+                        </a>
                         <a href="/brochure.pdf" download>
                           <button className="flex-1 lg:flex-none cursor-pointer bg-gray-100 text-gray-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-colors">
                             Download Brochure
