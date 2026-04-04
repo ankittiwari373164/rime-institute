@@ -8,17 +8,17 @@ const ProgramOffer = () => {
     const programs = [
         {
             title: "Engineering",
-            programs: ["Computer Science", "Electronics", "Mechanical", "Civil"],
+            programs: ["Computer Science (CSE)", "AI & Machine Learning (AIML)", "Artificial Intelligence (AI)", "Mechanical Engineering", "Electrical Engineering"],
             image: "/engineering.jpeg",
         },
         {
             title: "Management",
-            programs: ["MBA", "BBA", "Executive MBA", "PGDM"],
+            programs: ["MBA", "BBA"],
             image: "/management.jpeg",
         },
         {
             title: "Computer Applications",
-            programs: ["MCA", "BCA", "M.Sc IT", "B.Sc CS"],
+            programs: ["MCA", "BCA"],
             image: "/library-img-3.jpeg",
         },
     ];
