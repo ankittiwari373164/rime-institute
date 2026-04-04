@@ -11,7 +11,7 @@ const CardInfo = () => {
     {
       icon: Phone,
       title: "Phone",
-      details: ["+91-8810676939", "+91-8810676551 (Admissions)"],
+      details: ["1800-833-3338 (Toll Free)", "+91-8810676939"],
     },
     {
       icon: Mail,
