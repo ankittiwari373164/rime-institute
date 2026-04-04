@@ -47,11 +47,12 @@ export const courses = [
     "B.Tech (CSE)",
     "B.Tech (CSE-AI)",
     "B.Tech (CSE-AIML)",
-    "B.Tech in Mechanical Engineering (ME)",
-    "B.Tech in Electrical Engineering (EE)",
-    "B.Tech in Electronics & Communication Engineering (ECE)",
+    "B.Tech - Mechanical Engineering (ME)",
+    "B.Tech - Electrical Engineering (EE)",
     "Bachelor of Business Administration (BBA)",
     "Bachelor of Computer Applications (BCA)",
+    "Master of Business Administration (MBA)",
+    "Master of Computer Applications (MCA)",
     "Bachelor of Education (B.Ed)",
-    "Master of Education (M.Ed)"
+    "Master of Education (M.Ed)",
 ]
