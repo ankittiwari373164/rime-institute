@@ -122,7 +122,7 @@ const ProgramList = () => {
                           </Link>
                         </button>
                         </a>
-                        <a href="/brochure.pdf" download>
+                        <a href="/Rime Brochure (2).pdf" download>
                           <button className="flex-1 lg:flex-none cursor-pointer bg-gray-100 text-gray-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-colors">
                             Download Brochure
                           </button>
