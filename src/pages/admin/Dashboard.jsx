@@ -7,7 +7,7 @@ function Dashboard() {
   const [activeTab, setActiveTab] = useState("applications");
 
   const handleLogout = async () => {
-    await fetch("http://localhost:3000/api/auth/logout", {
+    await fetch("https://rime-backend-lovat.vercel.app/api/auth/logout", {
       method: "POST",
       credentials: "include",
     });
