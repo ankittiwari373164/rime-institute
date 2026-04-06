@@ -11,7 +11,7 @@ const CardInfo = () => {
     {
       icon: Phone,
       title: "Phone",
-      details: [ "+91-8810676939", "+91-8810676939"],
+      details: [ "+91-8810676551", "+91-8810676939"],
     },
     {
       icon: Mail,
