@@ -33,7 +33,7 @@ const Home = () => {
       </Helmet>
       <div className="mt-30 overflow-y-hidden overflow-x-hidden">
         <Header />
-        <Stats />
+        {/*  <Stats /> */}
         <AboutSection />
         <Features />
         <ProgramOffer />
