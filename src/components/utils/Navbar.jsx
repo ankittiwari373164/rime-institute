@@ -184,7 +184,7 @@ const Navbar = () => {
               )}
 
               {/* LOGIN / LOGOUT MOBILE */}
-              {!user ? (
+              {/*   {!user ? (
                 <Link
                   to="/login"
                   onClick={() => setIsMenuOpen(false)}
@@ -199,7 +199,7 @@ const Navbar = () => {
                 >
                   Logout
                 </button>
-              )}
+              )} */}
 
               <Link
                 to="/apply"
