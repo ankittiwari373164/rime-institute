@@ -21,11 +21,11 @@ const FacultySection = () => {
       role: "Director at RIME",
       image: "./headmaster.jpeg",
     },
-    {
+    {/* {
       name: "Deeksha Singh",
       role: "HOD (CSE Deptt.) at RIME",
       image: "./deeksha.jpg",
-    },
+    }, */}
     
   ];
 
