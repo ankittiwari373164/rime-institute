@@ -2,7 +2,7 @@ import axios from "axios";
 
 const API = axios.create({
   // Vercel backend URL
-  baseURL: "https://rime-backend-lovat.vercel.app/api",
+  baseURL: "https://rime-project-blush.vercel.app/",
   //  YE SABSE ZAROORI HAI:
   // Iske bina browser cookies ko backend tak nahi bhejega.
   withCredentials: true,
