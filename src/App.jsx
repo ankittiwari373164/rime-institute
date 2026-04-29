@@ -7,16 +7,16 @@ import Footer from "./components/utils/Footer";
 import ScrollToTop from "./components/utils/ScrollToTop";
 import WhatsAppButton from "./components/utils/WhatsAppButton";
 import ScrollTop from "./components/utils/ScrollTop";
-import EnquiryButton from "./components/Enquiry/EnquiryButton";
-import EnquiryForm from "./components/Enquiry/EnquiryForm";
+// import EnquiryButton from "./components/Enquiry/EnquiryButton";
+// import EnquiryForm from "./components/Enquiry/EnquiryForm";
 import ApplyButton from "./components/Apply/ApplyButton";
 import Loader from "./components/utils/Loader";
-
 // 🔹 Pages
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Program from "./pages/Program";
+import ProgramDetails from "./pages/ProgramDetails";
 import Admission from "./pages/Admission";
 import Gallary from "./pages/Gallary";
 import NotFound from "./pages/NotFound";
@@ -27,7 +27,7 @@ import Pool from "./pages/Pool";
 import SeminarHall from "./pages/SeminarHall";
 import ApplyForm from "./components/Apply/ApplyForm";
 import Login from "./pages/Login";
-
+import BtechLanding from "./pages/BtechLanding";
 // 🔹 Admin & Protection
 import Dashboard from "./pages/admin/Dashboard";
 import PrivateRoute from "./components/admin/PrivateRoute";
@@ -62,9 +62,9 @@ const App = () => {
       <Loader />
       <ScrollTop />
 
-      {EnquiryFormPopUp && (
+      {/* {EnquiryFormPopUp && (
         <EnquiryForm setClose={setEnquiryFormPopUp} />
-      )}
+      )} */}
 
       <div>
         {/* Navbar tabhi dikhega jab user Admin Dashboard mein nahi hoga */}
@@ -86,11 +86,15 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/programs" element={<Program />} />
+          <Route path="/programs/:id" element={<ProgramDetails />} />
           <Route path="/admissions" element={<Admission />} />
           <Route path="/apply" element={<ApplyForm />} />
           <Route path="/gallery" element={<Gallary />} />
           <Route path="/contact" element={<Contact />} />
           
+
+          {/* per courses landing page */}
+          <Route path="/courses/btech" element={<BtechLanding />} />
           {/* Common Login for everyone */}
           <Route path="/login" element={<Login />} />
 
@@ -109,7 +113,7 @@ const App = () => {
         {!isAdminRoute && (
           <>
             <Footer />
-            <EnquiryButton setOpen={setEnquiryFormPopUp} />
+            {/* <EnquiryButton setOpen={setEnquiryFormPopUp} /> */}
             <ApplyButton />
             <WhatsAppButton />
             <ScrollToTop />

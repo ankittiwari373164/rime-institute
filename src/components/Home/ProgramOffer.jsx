@@ -10,16 +10,19 @@ const ProgramOffer = () => {
             title: "Engineering",
             programs: ["Computer Science (CSE)", "AI & Machine Learning (AIML)", "Artificial Intelligence (AI)", "Mechanical Engineering", "Electrical Engineering"],
             image: "/engineering.jpeg",
+            redirect:"courses/btech"
         },
         {
             title: "Management",
             programs: ["MBA", "BBA"],
             image: "/management.jpeg",
+            redirect:"courses/btech"
         },
         {
             title: "Computer Applications",
             programs: ["MCA", "BCA"],
             image: "/library-img-3.jpeg",
+            redirect:"courses/btech"
         },
     ];
 
@@ -64,7 +67,7 @@ const ProgramOffer = () => {
                                     ))}
                                 </ul>
                                 <Link
-                                    to="/programs"
+                                    to={program.redirect}
                                     className="inline-block w-full text-center bg-[#C9A961] text-white px-6 py-3 rounded font-semibold hover:bg-[#b89851] transition-colors"
                                 >
                                     View Details

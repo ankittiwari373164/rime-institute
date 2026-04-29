@@ -1,8 +1,8 @@
-import { ArrowRight, BookOpen, Clock, GraduationCap } from 'lucide-react';
-import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom';
-import axios from 'axios';
-import Loader from '../utils/Loader';
+import { ArrowRight, BookOpen, Clock, GraduationCap } from "lucide-react";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
+import Loader from "../utils/Loader";
 
 const ProgramList = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
@@ -80,8 +80,10 @@ const ProgramList = () => {
                             <GraduationCap className="w-6 h-6 text-[#C9A961]" />
                           </div>
                           <div>
-                            <h3 className="text-2xl font-semibold text-blue-900 mb-2">
-                              {program.title}
+                            <h3 className="text-2xl font-semibold text-blue-900 mb-2 hover:text-[#C9A961] transition-colors">
+                              <Link to={`/programs/${program._id}`}>
+                                {program.title}
+                              </Link>
                             </h3>
                             <div className="flex flex-wrap gap-4 text-sm text-gray-600">
                               <div className="flex items-center gap-1">
@@ -90,22 +92,30 @@ const ProgramList = () => {
                               </div>
                               <div className="flex items-center gap-1">
                                 <BookOpen className="w-4 h-4" />
-                                <span>{program.seat} seats</span> {/* ✅ FIXED */}
+                                <span>{program.seat} seats</span>{" "}
+                                {/* ✅ FIXED */}
                               </div>
                             </div>
                           </div>
                         </div>
 
                         <div className="mb-4">
-                          <h4 className="font-semibold text-gray-900 mb-2">Eligibility:</h4>
+                          <h4 className="font-semibold text-gray-900 mb-2">
+                            Eligibility:
+                          </h4>
                           <p className="text-gray-600">{program.eligibility}</p>
                         </div>
 
                         <div>
-                          <h4 className="font-semibold text-gray-900 mb-2">Program Highlights:</h4>
+                          <h4 className="font-semibold text-gray-900 mb-2">
+                            Program Highlights:
+                          </h4>
                           <ul className="grid md:grid-cols-2 gap-2">
                             {program.highlights?.map((highlight, idx) => (
-                              <li key={idx} className="flex items-start gap-2 text-gray-600">
+                              <li
+                                key={idx}
+                                className="flex items-start gap-2 text-gray-600"
+                              >
                                 <ArrowRight className="w-4 h-4 text-blue-600 shrink-0 mt-1" />
                                 <span>{highlight}</span>
                               </li>
@@ -115,12 +125,10 @@ const ProgramList = () => {
                       </div>
 
                       <div className="lg:w-48 flex mx-auto lg:flex-col md:flex-row flex-col gap-3">
-                        <a href="/apply" >
-                        <button className="flex-1 lg:w-auto md:w-fit w-48 lg:flex-none bg-[#C9A961]/90 text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#C9A961] cursor-pointer transition-colors">
-                          <Link to={'/apply'}>
-                            Apply Now
-                          </Link>
-                        </button>
+                        <a href="/apply">
+                          <button className="flex-1 lg:w-auto md:w-fit w-48 lg:flex-none bg-[#C9A961]/90 text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#C9A961] cursor-pointer transition-colors">
+                            <Link to={"/apply"}>Apply Now</Link>
+                          </button>
                         </a>
                         <a href="/Rime Brochure (2).pdf" download>
                           <button className="flex-1 lg:flex-none cursor-pointer bg-gray-100 text-gray-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-colors">
@@ -128,7 +136,6 @@ const ProgramList = () => {
                           </button>
                         </a>
                       </div>
-
                     </div>
                   </div>
                 </div>
