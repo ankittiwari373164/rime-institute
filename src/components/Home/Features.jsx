@@ -33,7 +33,7 @@ const Features = () => {
               WHY CHOOSE US
             </div>
             <h2 className="text-4xl font-bold mb-4 text-gray-900 overflow-y-hidden">
-              Why Study at <span className="text-[#C9A961]">RIME</span>?
+              Why Study at <span className="text-[#C9A961]">RIMT</span>?
             </h2>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">

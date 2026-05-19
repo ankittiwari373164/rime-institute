@@ -6,14 +6,14 @@ const FacultySection = () => {
     {
       name: "Sh. Yashvir Dagar",
       role: "Chairman",
-      org: "RIME",
+      org: "RIMT",
       image: "chairmannewimage.jpeg",
       quote: "Shaping tomorrow's leaders through knowledge, integrity, and innovation.",
     },
     {
       name: "Dr. Shyam Sunder Kaushik",
       role: "Director",
-      org: "RIME",
+      org: "RIMT",
       image: "./headmaster.jpeg",
       quote: "Excellence in education is not an act, but a habit we build every day.",
     },
@@ -26,7 +26,7 @@ const FacultySection = () => {
         {/* Header */}
         <div className="text-center mb-20">
           <h2 className="text-5xl md:text-6xl font-extrabold text-gray-900 tracking-tight mb-6">
-            Leadership <span className="font-extralight text-gray-400">@RIME</span>
+            Leadership <span className="font-extralight text-gray-400">@RIMT</span>
           </h2>
           <p className="text-[#555] text-lg max-w-2xl mx-auto leading-relaxed">
             Guided by visionary leaders committed to academic excellence and student success.

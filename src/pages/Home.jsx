@@ -20,7 +20,7 @@ const Home = () => {
     <>
       <Helmet>
         <title>
-          RIME | Rattan Institute of Management and Engineering - MDU Affiliated
+          RIME | Rattan Institute of Management and Technology - MDU Affiliated
         </title>
         <meta
           name="description"
@@ -28,7 +28,7 @@ const Home = () => {
         />
         <meta
           name="keywords"
-          content="RIME College, Rattan Institute of Management and Engineering, B.Tech in Rohtak, MDU Affiliated Colleges, BCA BBA Admission 2026"
+          content="RIME College, Rattan Institute of Management and Technology, B.Tech in Rohtak, MDU Affiliated Colleges, BCA BBA Admission 2026"
         />
       </Helmet>
       <div className="mt-30 overflow-y-hidden overflow-x-hidden">

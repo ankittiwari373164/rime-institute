@@ -14,13 +14,13 @@ const AboutSection = () => {
                         transition={{ duration: 1 }}
                     >
                         <div className="inline-block bg-[#C9A961] text-white px-4 py-1 text-sm mb-4">
-                            ABOUT RIME
+                            ABOUT RIMT
                         </div>
                         <h2 className="text-4xl font-bold mb-6 text-gray-900 overflow-y-hidden">
-                            Rattan Institute of <span className="text-[#C9A961]">Management & Engineering</span>
+                            Rattan Institute of <span className="text-[#C9A961]">Management & Technology</span>
                         </h2>
                         <p className="text-gray-600 mb-6 leading-relaxed">
-                            RIME is a premier educational institution committed to providing world-class education
+                            RIMT is a premier educational institution committed to providing world-class education
                             and fostering innovation. And this college is affiliated to Maharshi Dayanand University, Rohtak and approved by AICTE, New Delhi. With state-of-the-art infrastructure, experienced faculty,
                             and industry collaborations, we ensure holistic development of students.
                         </p>

@@ -15,7 +15,7 @@ const Footer = () => {
               className="h-25 w-auto mb-4"
             />
             <p className="text-sm leading-relaxed mt-4">
-              Rattan Institute of Management & Engineering - Empowering students with quality education
+              Rattan Institute of Management and Technology - Empowering students with quality education
               and research opportunities for a brighter future.
             </p>
             <div className="flex gap-3 mt-6">
@@ -129,7 +129,7 @@ const Footer = () => {
 
         {/* Copyright */}
         <div className="border-t border-white mt-8 pt-8 text-center text-sm">
-          <p>&copy; {new Date().getFullYear()} RIME - Rattan Institute of Management & Engineering. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} RIMT - Rattan Institute of Management and Technology. All rights reserved.</p>
         </div>
       </div>
     </footer>
