@@ -88,7 +88,7 @@ const Navbar = () => {
 
             {/* LOGO */}
             <Link to="/">
-              <img src="/logo.svg" className="h-18" />
+              <img src="/logo.png" className="h-18" />
             </Link>
 
             {/* DESKTOP NAV */}
